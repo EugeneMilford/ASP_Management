@@ -243,3 +243,8 @@ D:\Projects\ASP NET Office Management\OfficeManagement\obj\Debug\net6.0\refint\O
 D:\Projects\ASP NET Office Management\OfficeManagement\obj\Debug\net6.0\OfficeManagement.pdb
 D:\Projects\ASP NET Office Management\OfficeManagement\obj\Debug\net6.0\OfficeManagement.genruntimeconfig.cache
 D:\Projects\ASP NET Office Management\OfficeManagement\obj\Debug\net6.0\ref\OfficeManagement.dll
+D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\ASP NET Office Management\OfficeManagement\obj\Debug\net6.0\OfficeManagement.MvcApplicationPartsAssemblyInfo.cs
