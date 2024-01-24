@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using OfficeManagement.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<OfficeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("OfficeContext") ?? throw new InvalidOperationException("Connection string 'OfficeContext' not found.")));
 
 var app = builder.Build();
 

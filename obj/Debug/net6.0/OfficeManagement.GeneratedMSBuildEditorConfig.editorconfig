@@ -15,8 +15,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Projects\ASP NET Office Management\OfficeManagement
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsZW5kYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/FAQ.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRkFRLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Index.cshtml]
@@ -29,6 +37,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/StaffMembers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZNZW1iZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/StaffMembers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZNZW1iZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/StaffMembers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZNZW1iZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/StaffMembers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZNZW1iZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/StaffMembers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZNZW1iZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/_ViewImports.cshtml]
