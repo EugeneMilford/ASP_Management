@@ -51,6 +51,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlRXZlbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/OfficeProjects/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlUHJvamVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/OfficeProjects/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlUHJvamVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/OfficeProjects/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlUHJvamVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/OfficeProjects/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlUHJvamVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/OfficeProjects/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmaWNlUHJvamVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

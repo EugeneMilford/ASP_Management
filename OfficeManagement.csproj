@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\Bugs\" />
-    <Folder Include="Pages\OfficeProjects\" />
   </ItemGroup>
 
 </Project>
