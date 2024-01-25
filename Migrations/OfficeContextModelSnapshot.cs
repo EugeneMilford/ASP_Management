@@ -104,6 +104,53 @@ namespace OfficeManagement.Migrations
                     b.ToTable("event", (string)null);
                 });
 
+            modelBuilder.Entity("OfficeManagement.Models.Mail", b =>
+                {
+                    b.Property<int>("MailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MailId"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MailContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MailTopic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MailId");
+
+                    b.ToTable("mail", (string)null);
+                });
+
+            modelBuilder.Entity("OfficeManagement.Models.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"), 1L, 1);
+
+                    b.Property<string>("MessageBody")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageSender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MessageId");
+
+                    b.ToTable("message", (string)null);
+                });
+
             modelBuilder.Entity("OfficeManagement.Models.Project", b =>
                 {
                     b.Property<int>("ProjectId")

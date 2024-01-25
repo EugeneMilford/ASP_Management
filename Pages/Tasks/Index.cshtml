@@ -1,0 +1,60 @@
+﻿@page
+@model OfficeManagement.Pages.Tasks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignment[0].AssignmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignment[0].AssignmentDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignment[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignment[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignment[0].EndDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Assignment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignmentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AssignmentId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AssignmentId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AssignmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

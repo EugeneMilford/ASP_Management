@@ -1,0 +1,54 @@
+﻿@page
+@model OfficeManagement.Pages.OfficeEvents.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Activity[0].EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activity[0].EventDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activity[0].EventTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activity[0].UsersAssigned)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Activity) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsersAssigned)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ActivityId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ActivityId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ActivityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

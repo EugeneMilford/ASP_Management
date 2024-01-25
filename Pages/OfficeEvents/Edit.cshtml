@@ -1,0 +1,50 @@
+﻿@page
+@model OfficeManagement.Pages.OfficeEvents.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Activity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Activity.ActivityId" />
+            <div class="form-group">
+                <label asp-for="Activity.EventName" class="control-label"></label>
+                <input asp-for="Activity.EventName" class="form-control" />
+                <span asp-validation-for="Activity.EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.EventDescription" class="control-label"></label>
+                <input asp-for="Activity.EventDescription" class="form-control" />
+                <span asp-validation-for="Activity.EventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.EventTime" class="control-label"></label>
+                <input asp-for="Activity.EventTime" class="form-control" />
+                <span asp-validation-for="Activity.EventTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity.UsersAssigned" class="control-label"></label>
+                <input asp-for="Activity.UsersAssigned" class="form-control" />
+                <span asp-validation-for="Activity.UsersAssigned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

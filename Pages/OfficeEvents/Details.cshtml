@@ -1,0 +1,43 @@
+﻿@page
+@model OfficeManagement.Pages.OfficeEvents.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Activity</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Activity.EventName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Activity.EventName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Activity.EventDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Activity.EventDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Activity.EventTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Activity.EventTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Activity.UsersAssigned)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Activity.UsersAssigned)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Activity?.ActivityId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

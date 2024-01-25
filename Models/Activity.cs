@@ -1,8 +1,8 @@
 ﻿namespace OfficeManagement.Models
 {
-    public class Event
+    public class Activity
     {
-        public int EventId { get; set; }
+        public int ActivityId { get; set; }
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public DateTime EventTime { get; set; }

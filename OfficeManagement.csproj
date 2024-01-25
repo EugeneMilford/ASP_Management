@@ -23,4 +23,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Bugs\" />
+    <Folder Include="Pages\OfficeProjects\" />
+  </ItemGroup>
+
 </Project>
