@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
-namespace OfficeManagement.Pages.UserProfiles
+namespace OfficeManagement.Pages.OfficeBugTracking
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace OfficeManagement.Pages.UserProfiles
         }
 
         [BindProperty]
-      public Profile Profile { get; set; }
+      public BugTracking BugTracking { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null || _context.Bugs == null)
             {
                 return NotFound();
             }
 
-            var profile = await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
+            var bugtracking = await _context.Bugs.FirstOrDefaultAsync(m => m.TicketId == id);
 
-            if (profile == null)
+            if (bugtracking == null)
             {
                 return NotFound();
             }
             else 
             {
-                Profile = profile;
+                BugTracking = bugtracking;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null || _context.Bugs == null)
             {
                 return NotFound();
             }
-            var profile = await _context.Summary.FindAsync(id);
+            var bugtracking = await _context.Bugs.FindAsync(id);
 
-            if (profile != null)
+            if (bugtracking != null)
             {
-                Profile = profile;
-                _context.Summary.Remove(Profile);
+                BugTracking = bugtracking;
+                _context.Bugs.Remove(BugTracking);
                 await _context.SaveChangesAsync();
             }
 

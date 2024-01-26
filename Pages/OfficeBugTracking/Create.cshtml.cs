@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
-namespace OfficeManagement.Pages.UserProfiles
+namespace OfficeManagement.Pages.OfficeBugTracking
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace OfficeManagement.Pages.UserProfiles
         }
 
         [BindProperty]
-        public Profile Profile { get; set; }
+        public BugTracking BugTracking { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -36,7 +36,7 @@ namespace OfficeManagement.Pages.UserProfiles
                 return Page();
             }
 
-            _context.Summary.Add(Profile);
+            _context.Bugs.Add(BugTracking);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

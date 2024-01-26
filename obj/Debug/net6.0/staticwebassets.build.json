@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/w136sRX7ubZ3x+JiV/8zwbzoA2ZA4TaTbwe/eOrxv8=",
+  "Hash": "DQH6ErjUOUWg05Up8ExxtP6zKuwqGxgdNiiO//ldX9E=",
   "Source": "OfficeManagement",
   "BasePath": "_content/OfficeManagement",
   "Mode": "Default",
@@ -814,6 +814,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\Style.css",
+      "SourceId": "OfficeManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\",
+      "BasePath": "_content/OfficeManagement",
+      "RelativePath": "css/Style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Style.css"
     },
     {
       "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\favicon.ico",

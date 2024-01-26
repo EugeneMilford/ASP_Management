@@ -4,7 +4,7 @@
 
 namespace OfficeManagement.Migrations
 {
-    public partial class ProfileAdded : Migration
+    public partial class PagesUpdated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
-namespace OfficeManagement.Pages.UserProfiles
+namespace OfficeManagement.Pages.OfficeBugTracking
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace OfficeManagement.Pages.UserProfiles
         }
 
         [BindProperty]
-        public Profile Profile { get; set; } = default!;
+        public BugTracking BugTracking { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null || _context.Bugs == null)
             {
                 return NotFound();
             }
 
-            var profile =  await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
-            if (profile == null)
+            var bugtracking =  await _context.Bugs.FirstOrDefaultAsync(m => m.TicketId == id);
+            if (bugtracking == null)
             {
                 return NotFound();
             }
-            Profile = profile;
+            BugTracking = bugtracking;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace OfficeManagement.Pages.UserProfiles
                 return Page();
             }
 
-            _context.Attach(Profile).State = EntityState.Modified;
+            _context.Attach(BugTracking).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace OfficeManagement.Pages.UserProfiles
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfileExists(Profile.ProfileId))
+                if (!BugTrackingExists(BugTracking.TicketId))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace OfficeManagement.Pages.UserProfiles
             return RedirectToPage("./Index");
         }
 
-        private bool ProfileExists(int id)
+        private bool BugTrackingExists(int id)
         {
-          return _context.Summary.Any(e => e.ProfileId == id);
+          return _context.Bugs.Any(e => e.TicketId == id);
         }
     }
 }

@@ -1,60 +1,174 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OfficeManagement</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/OfficeManagement.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">OfficeManagement</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Management System</title>
+        <link rel="stylesheet" href="~/css/Style.css" />
+    </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Left navbar links -->
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" href="#" data-bs-widget="pushmenu" role="button"><i
+                            class="fas fa-bars"></i></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li class="nav-item d-none d-sm-inline-block">
+                            <a href="index3.html" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/StaffMembers/Index">
-                                Staff
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/UserRoles/Index">
-                                Roles
-                            </a>
+                        <li class="nav-item d-none d-sm-inline-block">
+                            <a href="#" class="nav-link">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+            <!-- Right navbar links -->
+            <div class="container-fluid">
+                <ul class="navbar-nav ml-auto">
+            <!-- Navbar Search -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-widget="navbar-search" role="button">
+                    <i class="fas fa-search"></i>
+                </a>
+                <div class="navbar-search-block">
+                    <form class="form-inline">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <button class="btn btn-navbar" type="button" data-bs-widget="navbar-search">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-widget="fullscreen" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+        </ul>
     </div>
+</nav>
 
-    <footer class="main-footer fixed-bottom">
-        <strong>Copyright &copy; 2023</strong>
-    </footer>
+        <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <span class="brand-text font-weight-light">Management System</span>
+    </a>
 
+    <!-- Sidebar -->
+    <div class="sidebar">
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Index">
+                        <i class="fas fa-tachometer-alt nav-icon"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/UserProfiles/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/StaffMembers/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Staff</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/UserRoles/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Roles</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/OfficeBugTracking/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Bug Tracking</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/OfficeEvents/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Events</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/UserMail/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Mail</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/UserMessages/Index">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Messages</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Calendar">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>Calendar</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/FAQ">
+                        <i class="fas fa-th nav-icon"></i>
+                        <p>FAQ</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
 
-    @await RenderSectionAsync("Scripts", required: false)
+  <div class="content-wrapper">
+      <section class="content">
+          <div class="container-fluid">
+        <div class="row">
+            @RenderBody()
+            @RenderSection("scripts", required: false)
+            </div>
+        </div>
+      </section>
+  </div>
+
+  <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="mb-0"><strong>Copyright &copy; 2023</strong></p>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
 </body>
+    
 </html>
+
+

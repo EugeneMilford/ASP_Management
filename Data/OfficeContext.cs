@@ -22,7 +22,7 @@ namespace OfficeManagement.Data
         public DbSet<BugTracking> Bugs { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Mail> Mails { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Profile> Summary { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,8 +35,8 @@ namespace OfficeManagement.Data
             modelBuilder.Entity<Project>().ToTable("project");
             modelBuilder.Entity<Message>().ToTable("message");
             modelBuilder.Entity<Mail>().ToTable("mail");
-            modelBuilder.Entity<Profile>().ToTable("profile");
-            modelBuilder.Entity<BugTracking>().HasNoKey().ToTable("bug");
+            modelBuilder.Entity<Profile>().ToTable("users");
+            modelBuilder.Entity<BugTracking>().ToTable("bug");
         }
     }
 }

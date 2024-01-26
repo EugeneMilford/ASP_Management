@@ -1,7 +1,10 @@
-﻿namespace OfficeManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace OfficeManagement.Models
 {
     public class BugTracking
     {
+        [Key]
         public int TicketId { get; set; }
         public string Title { get; set; }
         public string Priority { get; set; }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
-namespace OfficeManagement.Pages.UserProfiles
+namespace OfficeManagement.Pages.OfficeBugTracking
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace OfficeManagement.Pages.UserProfiles
             _context = context;
         }
 
-      public Profile Profile { get; set; }
+      public BugTracking BugTracking { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null || _context.Bugs == null)
             {
                 return NotFound();
             }
 
-            var profile = await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
-            if (profile == null)
+            var bugtracking = await _context.Bugs.FirstOrDefaultAsync(m => m.TicketId == id);
+            if (bugtracking == null)
             {
                 return NotFound();
             }
             else 
             {
-                Profile = profile;
+                BugTracking = bugtracking;
             }
             return Page();
         }

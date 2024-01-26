@@ -1,0 +1,65 @@
+﻿@page
+@model OfficeManagement.Pages.OfficeBugTracking.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BugTracking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BugTracking.TicketId" />
+            <div class="form-group">
+                <label asp-for="BugTracking.Title" class="control-label"></label>
+                <input asp-for="BugTracking.Title" class="form-control" />
+                <span asp-validation-for="BugTracking.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugTracking.Priority" class="control-label"></label>
+                <input asp-for="BugTracking.Priority" class="form-control" />
+                <span asp-validation-for="BugTracking.Priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugTracking.Project" class="control-label"></label>
+                <input asp-for="BugTracking.Project" class="form-control" />
+                <span asp-validation-for="BugTracking.Project" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugTracking.Description" class="control-label"></label>
+                <input asp-for="BugTracking.Description" class="form-control" />
+                <span asp-validation-for="BugTracking.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugTracking.CreatedDate" class="control-label"></label>
+                <input asp-for="BugTracking.CreatedDate" class="form-control" />
+                <span asp-validation-for="BugTracking.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugTracking.Status" class="control-label"></label>
+                <input asp-for="BugTracking.Status" class="form-control" />
+                <span asp-validation-for="BugTracking.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugTracking.Submitter" class="control-label"></label>
+                <input asp-for="BugTracking.Submitter" class="form-control" />
+                <span asp-validation-for="BugTracking.Submitter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

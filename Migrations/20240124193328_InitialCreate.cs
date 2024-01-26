@@ -44,22 +44,6 @@ namespace OfficeManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "event",
-                columns: table => new
-                {
-                    EventId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EventName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EventDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EventTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UsersAssigned = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_event", x => x.EventId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "project",
                 columns: table => new
                 {

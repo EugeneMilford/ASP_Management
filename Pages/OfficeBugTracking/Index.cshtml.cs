@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
-namespace OfficeManagement.Pages.UserProfiles
+namespace OfficeManagement.Pages.OfficeBugTracking
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace OfficeManagement.Pages.UserProfiles
             _context = context;
         }
 
-        public IList<Profile> Profile { get;set; } = default!;
+        public IList<BugTracking> BugTracking { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Summary != null)
+            if (_context.Bugs != null)
             {
-                Profile = await _context.Summary.ToListAsync();
+                BugTracking = await _context.Bugs.ToListAsync();
             }
         }
     }
