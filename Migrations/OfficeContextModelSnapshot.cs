@@ -77,11 +77,11 @@ namespace OfficeManagement.Migrations
 
             modelBuilder.Entity("OfficeManagement.Models.BugTracking", b =>
                 {
-                    b.Property<int>("BugId")
+                    b.Property<int>("TicketId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BugId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TicketId"), 1L, 1);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -104,9 +104,9 @@ namespace OfficeManagement.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BugId");
+                    b.HasKey("TicketId");
 
-                    b.ToTable("bugtracking", (string)null);
+                    b.ToTable("bug", (string)null);
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Mail", b =>
