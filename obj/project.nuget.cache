@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VZ9ViUihxDEQ3zM5Bk1hJF1RA2aUK2aRHOA3KipGl0Oe+nwgm09kkE74vfwtYM8BuKs86hRHFu3NMZ7oyfvz6Q==",
+  "dgSpecHash": "Fy/pqX0x8sfFJRGa+eMUkdzjmnywtyEm2LNDZRsnoLrv2bL0uJrRsjxIk5e0BfZAx09obiXC6++7o7BLq0r1mg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\OfficeManagement.csproj",
   "expectedPackageFiles": [
@@ -55,6 +55,7 @@
     "C:\\Users\\gmilf\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\gmilf\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\gmilf\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\gmilf\\.nuget\\packages\\jquery\\3.7.1\\jquery.3.7.1.nupkg.sha512",
     "C:\\Users\\gmilf\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\gmilf\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\gmilf\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

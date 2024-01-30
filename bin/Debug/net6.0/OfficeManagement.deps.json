@@ -15,7 +15,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.26",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
           "Swashbuckle.AspNetCore": "6.5.0",
-          "bootstrap": "5.3.2"
+          "bootstrap": "5.3.2",
+          "jQuery": "3.7.1"
         },
         "runtime": {
           "OfficeManagement.dll": {}
@@ -562,6 +563,7 @@
           }
         }
       },
+      "jQuery/3.7.1": {},
       "MessagePack/2.1.152": {
         "dependencies": {
           "MessagePack.Annotations": "2.1.152",
@@ -2898,6 +2900,13 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "jQuery/3.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rF8hnQxmBMlIspf8VN72bALtmIpKx6hKRpUdTOkp/8JzfF8KgNqHut5lOy9kFGvFIStumCqJ+PBxpI9gxpRYfQ==",
+      "path": "jquery/3.7.1",
+      "hashPath": "jquery.3.7.1.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",
