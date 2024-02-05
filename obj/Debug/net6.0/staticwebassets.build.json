@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DQH6ErjUOUWg05Up8ExxtP6zKuwqGxgdNiiO//ldX9E=",
+  "Hash": "LU8FEbiSO3cuCvdadC5rFhfBWxZeQ9h5ad39kPckuxY=",
   "Source": "OfficeManagement",
   "BasePath": "_content/OfficeManagement",
   "Mode": "Default",
@@ -799,6 +799,23 @@
       "OriginalItemSpec": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OfficeManagement.bundle.scp.css"
     },
     {
+      "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\calendar.css",
+      "SourceId": "OfficeManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\",
+      "BasePath": "_content/OfficeManagement",
+      "RelativePath": "css/calendar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\calendar.css"
+    },
+    {
       "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\site.css",
       "SourceId": "OfficeManagement",
       "SourceType": "Discovered",
@@ -848,6 +865,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\js\\calendar.js",
+      "SourceId": "OfficeManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\",
+      "BasePath": "_content/OfficeManagement",
+      "RelativePath": "js/calendar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\calendar.js"
     },
     {
       "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\js\\site.js",
