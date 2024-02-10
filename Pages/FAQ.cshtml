@@ -6,8 +6,7 @@
 }
 
 <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  <div class="container">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -25,146 +24,138 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-12" id="accordion">
-                <div class="card card-primary card-outline">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #1
-                    </button>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12" id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Question 1
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 1.
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card card-primary card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseTwo">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                2. Aenean massa
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-primary card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseThree">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                3. Donec quam felis
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseThree" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-warning card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseFour">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                4. Donec pede justo
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseFour" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-warning card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseFive">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                5. In enim justo
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseFive" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-warning card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseSix">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                6. Integer tincidunt
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseSix" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-danger card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseSeven">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                7. Aenean leo ligula
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseSeven" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-danger card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseEight">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                8. Aliquam lorem ante
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseEight" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-danger card-outline">
-                    <a class="d-block w-100" data-toggle="collapse" href="#collapseNine">
-                        <div class="card-header">
-                            <h4 class="card-title w-100">
-                                9.  Quisque rutrum
-                            </h4>
-                        </div>
-                    </a>
-                    <div id="collapseNine" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        
-        
-        <div class="row">
-            <div class="col-12 mt-3 text-center">
-                <p class="lead">
-                    <a href="contact-us.html">Contact us</a>,
-                    if you found not the right anwser or you have a other question?<br />
-                </p>
-            </div>
-        </div>
-    </section>
-    <!-- /.content -->
+                        <div class="card card-danger card-outline">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Question 2
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 2
+                                </div>
+                            </div>
+                        </div>                 
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Question 3
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 3
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Question 4
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 4
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Question 5
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 5
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        Question 6
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 6
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        Question 7
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 7
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEight">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        Question 8
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-bs-parent="#accordion">
+                                <div class="card-body">
+                                    The answer to question 8
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-12 mt-3 text-center">
+                        <p class="lead">
+                            <a href="contact-us.html">Contact us</a>,
+                            if you found not the right answer or you have another question?<br>
+                        </p>
+                    </div>
+                </div>
+            </section>
   </div>
   <!-- /.content-wrapper -->
 

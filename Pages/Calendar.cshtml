@@ -64,7 +64,6 @@
           <div class="col-md-9">
             <div class="card card-primary">
               <div class="card-body p-0">
-                <!-- THE CALENDAR -->
                 <div id="calendar"></div>
               </div>
               <!-- /.card-body -->
@@ -77,5 +76,13 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
- 
+
+    
+<script src='fullcalendar/dist/index.global.js'></script>
+<script>
+var calendar = new FullCalendar.Calendar(calendarEl, {
+  themeSystem: 'Cosmo'
+});
+
+</script>
 

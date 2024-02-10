@@ -83,6 +83,10 @@
             "jQuery": {
               "target": "Package",
               "version": "[3.7.1, )"
+            },
+            "jQuery.Fullcalendar": {
+              "target": "Package",
+              "version": "[3.9.0, )"
             }
           },
           "imports": [
