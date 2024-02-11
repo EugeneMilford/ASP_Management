@@ -248,3 +248,5 @@ D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Swashbuc
 D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Projects\ASP NET Office Management\OfficeManagement\obj\Debug\net6.0\OfficeManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\package-lock.json
+D:\Projects\ASP NET Office Management\OfficeManagement\bin\Debug\net6.0\package.json
