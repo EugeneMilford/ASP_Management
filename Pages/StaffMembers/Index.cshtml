@@ -1,6 +1,8 @@
 ﻿@page
 @model OfficeManagement.Pages.StaffMembers.IndexModel
 
+@*@model IEnumerable<OfficeManagement.Pages.StaffMembers.IndexModel>*@
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -23,6 +25,10 @@
         </div>
     </section>
 
+    <p>
+    <a asp-page="./Create">Create New</a>
+</p>
+
     <section class="content">
       
       <!-- Default box -->
@@ -41,14 +47,64 @@
                             </div>
                         </div>
         <div class="card-body pb-0">
-          <div class="row">
 
+            <div class="row">
+    @foreach (var staffMember in Model.Staff)
+    {
+        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+            <div class="card bg-light d-flex flex-fill">
+                <div class="card-body pt-0">
+                    <div class="row">
+                        <div class="col-7">
+                            <h2 class="lead">
+                                <b>
+                                    @Html.DisplayFor(model => staffMember.Surname) , @Html.DisplayFor(model => staffMember.Name) 
+                                </b>
+                            </h2>
+                            <p class="text-muted text-sm"><b>@Html.DisplayNameFor(model => staffMember.Gender) : </b> @Html.DisplayFor(model => staffMember.Gender)</p>
+                            <p class="text-muted text-sm">
+                                <b>@Html.DisplayFor(model => staffMember.Department)</b>
+                            </p>
+                            <p class="text-muted text-sm">
+                                <b>@Html.DisplayFor(model => staffMember.PhoneNumber)</b>
+                            </p>
+                            <p class="text-muted text-sm">
+                                <b>@Html.DisplayFor(model => staffMember.EmailAddress)</b>
+                            </p>
+                            <p class="text-muted text-sm">
+                                <b>@Html.DisplayFor(model => staffMember.DateOfBirth)</b>
+                            </p>
+                            <p class="text-muted text-sm">
+                                <b>@Html.DisplayFor(model => staffMember.Address)</b>
+                            </p>
+                            <p class="text-muted text-sm">
+                                <b>@Html.DisplayFor(model => staffMember.DateJoined)</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-right">
+                        <a asp-page="./Edit" asp-route-id="staffMember.Id" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-page="./Details" asp-route-id="staffMember.Id" class="btn btn-sm btn-secondary">Details</a>
+                        <a asp-page="./Delete" asp-route-id="staffMember.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+          <div class="row">
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
+                      <h2 class="lead">
+                          <b>
+                              @Html.DisplayNameFor(model => model.Staff[0].Name)
+                          </b>
+                      </h2>
                       <p class="text-muted text-sm">
                           <b>
                               @Html.DisplayNameFor(model => model.Staff[0].Gender)
