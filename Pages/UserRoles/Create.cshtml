@@ -24,6 +24,11 @@
                 <span asp-validation-for="Role.Surname" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Role.Title" class="control-label"></label>
+                <input asp-for="Role.Title" class="form-control" />
+                <span asp-validation-for="Role.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Role.EmailAddress" class="control-label"></label>
                 <input asp-for="Role.EmailAddress" class="form-control" />
                 <span asp-validation-for="Role.EmailAddress" class="text-danger"></span>

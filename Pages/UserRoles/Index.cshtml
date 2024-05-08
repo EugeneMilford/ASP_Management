@@ -40,6 +40,9 @@
                 @Html.DisplayNameFor(model => model.Role[0].Surname)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Role[0].Title)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Role[0].EmailAddress)
             </th>
             <th>
@@ -56,6 +59,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EmailAddress)
