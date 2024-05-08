@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OfficeManagement.Data;
 
@@ -11,9 +12,10 @@ using OfficeManagement.Data;
 namespace OfficeManagement.Migrations
 {
     [DbContext(typeof(OfficeContext))]
-    partial class OfficeContextModelSnapshot : ModelSnapshot
+    [Migration("20240508111216_StaffTitleAdded")]
+    partial class StaffTitleAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
