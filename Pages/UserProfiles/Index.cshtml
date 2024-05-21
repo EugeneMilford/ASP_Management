@@ -55,35 +55,25 @@
 
                             <hr>
 
-                            <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                            <strong><i class="fas fa-book mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].Education)</strong>
                             <p class="text-muted">
                                 @*@Html.DisplayFor(model => model.Profile[0].Education)*@
                             </p>
 
                             <hr>
 
-                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].Location)</strong>
                             <p class="text-muted">
                                 @*@Html.DisplayFor(model => model.Profile[0].Location)*@
                             </p>
 
                             <hr>
 
-                            <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                            <strong><i class="fas fa-pencil-alt mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].Skills)</strong>
                             <p class="text-muted">
-                                <span class="tag tag-danger">UI Design</span>
                                 <span class="tag tag-success">Coding</span>
-                                <span class="tag tag-info">Javascript</span>
-                                <span class="tag tag-warning">PHP</span>
-                                <span class="tag tag-primary">Node.js</span>
                             </p>
-
                             <hr>
-
-                            <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-                            <p class="text-muted">
-                                @*@Html.DisplayFor(model => model.Profile[0].ProfileName)*@
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +95,7 @@
                             </div>
                         </div>
                         <div class="card-header p-2">
-                            <h4 class="my-3">Experience</h4>
+                            <h4 class="my-3">@Html.DisplayNameFor(model => model.Profile[0].Experience)</h4>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
@@ -119,7 +109,7 @@
                             </div>
                         </div>
                         <div class="card-header p-2">
-                            <h4 class="my-3">Hobbies and Interests</h4>
+                            <h4 class="my-3">@Html.DisplayNameFor(model => model.Profile[0].Hobbies)</h4>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
@@ -127,6 +117,20 @@
                                     <div class="post">
                                         <p>
                                             @*@Html.DisplayFor(model => model.Profile[0].Hobbies)*@
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header p-2">
+                            <h4 class="my-3">@Html.DisplayNameFor(model => model.Profile[0].Notes)</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="activity">
+                                    <div class="post">
+                                        <p>
+                                            @*@Html.DisplayFor(model => model.Profile[0].Notes)*@
                                         </p>
                                     </div>
                                 </div>

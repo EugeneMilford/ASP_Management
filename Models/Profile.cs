@@ -6,8 +6,13 @@ namespace OfficeManagement.Models
     {
         public int ProfileId { get; set; }
         [Required]
+        [Display(Name = "Name")]
         public string ProfileName { get; set; }
         [Required]
+        [Display(Name = "Surname")]
+        public string ProfileSurname { get; set; }
+        [Required]
+        [Display(Name = "Description")]
         public string ProfileDescription { get; set; }
         [Required]
         public string Title { get; set; }
@@ -16,7 +21,11 @@ namespace OfficeManagement.Models
         [Required]
         public string Education { get; set; }
         [Required]
+        public string Skills { get; set; }
+        [Required]
         public string Location { get; set; }
+        [Required]
+        public string Hobbies {  get; set; }
         [Required]
         public string Notes { get; set; }
         [Required]
