@@ -192,6 +192,10 @@ namespace OfficeManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Hobbies")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -205,6 +209,14 @@ namespace OfficeManagement.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfileSurname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Skills")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
