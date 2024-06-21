@@ -6,7 +6,6 @@
 }
 
 <div class="container">
-    <!-- Content Header -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -14,18 +13,14 @@
                     <h1>Bug Tracking</h1>
                 </div>
                 <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/Index">Home</a></li>
-              <li class="breadcrumb-item active">Bug Tracking</li>
-            </ol>
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Index">Home</a></li>
+                        <li class="breadcrumb-item active">Bug Tracking</li>
+                    </ol>
                 </div>
             </div>
         </div>
-     </section>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+    </section>
 
     <section class="content">
         <div class="container-fluid">
@@ -34,7 +29,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Open Projects</h3>
-
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -46,8 +40,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- /.card-header -->
                         <div class="card-body table-responsive p-0" style="height: 300px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
@@ -58,71 +50,63 @@
                                         <th>
                                             @Html.DisplayNameFor(model => model.BugTracking[0].Priority)
                                         </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BugTracking[0].Project)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BugTracking[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BugTracking[0].CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BugTracking[0].Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BugTracking[0].Submitter)
-            </th>
-            <th></th>
-        </tr>
-                    
-                  </thead>
-                  <tbody>
-@foreach (var item in Model.BugTracking) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Project)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Submitter)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.TicketId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.TicketId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.TicketId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BugTracking[0].Project)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BugTracking[0].Description)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BugTracking[0].CreatedDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BugTracking[0].Status)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.BugTracking[0].Submitter)
+                                        </th>
+                                    </tr>          
+                                </thead>
+                                <tbody>
+                                @foreach (var item in Model.BugTracking) {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Priority)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Project)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Submitter)
+                                        </td>
+                                        <td>
+                                            <a asp-page="./Edit" asp-route-id="@item.TicketId">Edit</a> |
+                                            <a asp-page="./Details" asp-route-id="@item.TicketId">Details</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.TicketId">Delete</a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.card -->
-          </div>
         </div>
-
-      </div>
-
-      <div>
-          <button>Add new</button>
-      </div>
-
-</section>
-
+        <div>
+            <a asp-page="Create" class="btn btn-secondary">Add New Ticket</a>
+        </div>
+    </section>
 </div>

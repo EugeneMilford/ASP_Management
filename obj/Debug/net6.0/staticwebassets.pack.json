@@ -181,6 +181,10 @@
       "PackagePath": "staticwebassets\\OfficeManagement.bundle.scp.css"
     },
     {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\Office.css",
+      "PackagePath": "staticwebassets\\css\\Office.css"
+    },
+    {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\Style.css",
       "PackagePath": "staticwebassets\\css\\Style.css"
     },

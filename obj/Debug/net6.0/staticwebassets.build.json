@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "30yD5YgyKZ7RhHTA6DVVpgq1djzTbKpmXjnGNGUttkE=",
+  "Hash": "3b//1dozCvbpy1dyAjhnDLNK3w9xbzBxmp0LQkGlRx4=",
   "Source": "OfficeManagement",
   "BasePath": "_content/OfficeManagement",
   "Mode": "Default",
@@ -908,6 +908,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\calendar.css"
+    },
+    {
+      "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\Office.css",
+      "SourceId": "OfficeManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\",
+      "BasePath": "_content/OfficeManagement",
+      "RelativePath": "css/Office.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Office.css"
     },
     {
       "Identity": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\site.css",

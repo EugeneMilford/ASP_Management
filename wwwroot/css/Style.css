@@ -1,16 +1,4 @@
-﻿/*!
- *   AdminLTE v3.2.0
- *   Author: Colorlib
- *   Website: AdminLTE.io <https://adminlte.io>
- *   License: Open source - MIT <https://opensource.org/licenses/MIT>
- */
-/*!
- * Bootstrap v4.6.1 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
-:root {
+﻿:root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -54225,4 +54213,129 @@ a.text-muted:hover {
 
 .calendar-body {
     padding: 10px;
+}
+
+/*------------------
+Button Styles 
+-------------------*/
+.btn-radius {
+    border-radius: 100px !important;
+}
+
+.btn {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    padding: 13px 28px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.14);
+    text-transform: uppercase;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-sm {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 11px 25px;
+}
+
+.btn-lg {
+    padding: 18px 49px;
+}
+
+.btn-xs {
+    font-size: 10px;
+    padding: 8px 14px;
+}
+
+.btn-primary {
+    background: #5a7ce2;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+.btn-secondary {
+    background: #797b7f;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+.btn-success {
+    background: #05ac50;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+.btn-danger {
+    background: #e81216;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+.btn-warning {
+    background: #e5ae09;
+    background-size: 400% 400%;
+    border: medium none;
+    color: #fff !important;
+}
+
+.btn-info {
+    background: #01a8c1;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+.btn-light {
+    background: #f2f2f2;
+    color: #3f345f !important;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+.btn-dark {
+    background: #343a40;
+    background-size: 400% 400%;
+    border: medium none;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 31%
+    }
+
+    50% {
+        background-position: 100% 70%
+    }
+
+    100% {
+        background-position: 0% 31%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 31%
+    }
+
+    50% {
+        background-position: 100% 70%
+    }
+
+    100% {
+        background-position: 0% 31%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 31%
+    }
+
+    50% {
+        background-position: 100% 70%
+    }
+
+    100% {
+        background-position: 0% 31%
+    }
 }
