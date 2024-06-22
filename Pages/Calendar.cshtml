@@ -3,7 +3,50 @@
 @{
 }
 
-<!-- Content Header -->
+<div class="calendar-content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Calendar</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Calendar</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="calendar"></div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Add Entry</h3>
+                    <form id="calendarForm">
+                        <div class="mb-3">
+                            <label for="entryDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="entryDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="entryDescription" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="entryDescription" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@* <!-- Content Header -->
 <div class="container">
     <section class="content-header">
       <div class="container-fluid">
@@ -103,5 +146,5 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
   themeSystem: 'Cosmo'
 });
 
-</script>
+</script> *@
 

@@ -201,8 +201,8 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\js\\calendar.js",
-      "PackagePath": "staticwebassets\\js\\calendar.js"
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\js\\cal.js",
+      "PackagePath": "staticwebassets\\js\\cal.js"
     },
     {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\js\\site.js",

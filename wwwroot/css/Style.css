@@ -54339,3 +54339,10 @@ Button Styles
         background-position: 0% 31%
     }
 }
+
+/*-----------
+Calendar
+-----------*/
+.calendar-content-wrapper {
+    padding: 20px;
+
