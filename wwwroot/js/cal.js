@@ -1,48 +1,46 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth', // Initial view of the calendar
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+﻿$(document).ready(function () {
+    $('#calendar').fullCalendar({
+        editable: true,
+        selectable: true,
+        events: '/Calendar/GetEvents',
+        select: function (start, end) {
+            $('#entryDate').val(moment(start).format('YYYY-MM-DD'));
+            $('#calendarForm').show();
         },
-        editable: true, // Enable dragging and resizing events
-        selectable: true, // Enable date selection
-        select: function (info) {
-            // Handle date selection 
-            console.log('Selected Date:', info.startStr);
-        },
-        eventClick: function (info) {
-            // Handle event click 
-            console.log('Event clicked:', info.event);
-
-            // Confirm deletion
-            if (confirm("Do you want to delete this event?")) {
-                info.event.remove(); // Remove the event from the calendar
+        eventClick: function (event) {
+            if (confirm("Do you really want to delete this event?")) {
+                $.ajax({
+                    url: '/Calendar/DeleteEvent',
+                    type: 'POST',
+                    data: { id: event.id },
+                    success: function () {
+                        $('#calendar').fullCalendar('removeEvents', event.id);
+                        alert("Event Deleted");
+                    }
+                });
             }
         }
     });
 
-    // Render the calendar
-    calendar.render();
+    $('#calendarForm').on('submit', function (e) {
+        e.preventDefault();
+        var date = $('#entryDate').val();
+        var description = $('#entryDescription').val();
 
-    // Handle form submission for adding an entry
-    document.getElementById('calendarForm').addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Fetch values from form
-        let date = document.getElementById('entryDate').value;
-        let description = document.getElementById('entryDescription').value;
-
-        // Add event to FullCalendar
-        calendar.addEvent({
-            title: description,
-            start: date
+        $.ajax({
+            url: '/Calendar/AddEvent',
+            type: 'POST',
+            data: { date: date, description: description },
+            success: function (response) {
+                $('#calendar').fullCalendar('renderEvent', {
+                    id: response.id,
+                    title: description,
+                    start: date,
+                    allDay: true
+                });
+                alert("Event Added");
+                $('#calendarForm').hide();
+            }
         });
-
-        // Clear form fields
-        document.getElementById('entryDate').value = '';
-        document.getElementById('entryDescription').value = '';
     });
 });

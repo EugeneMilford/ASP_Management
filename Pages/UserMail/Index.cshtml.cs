@@ -1,32 +1,22 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using OfficeManagement.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using OfficeManagement.Data;
-using OfficeManagement.Models;
 
 namespace OfficeManagement.Pages.UserMail
 {
     public class IndexModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        public IList<Mail> Mail { get; set; } = default!;
 
-        public IndexModel(OfficeManagement.Data.OfficeContext context)
+        public void OnGet()
         {
-            _context = context;
-        }
-
-        public IList<Mail> Mail { get;set; } = default!;
-
-        public async Task OnGetAsync()
-        {
-            if (_context.Mails != null)
+            // This would typically come from a database context
+            Mail = new List<Mail>
             {
-                Mail = await _context.Mails.ToListAsync();
-            }
+                new Mail { MailId = 1, MailTopic = "Meeting Reminder", MailContent = "Don't forget our meeting tomorrow.", Sender = "John Doe", CreatedDate = DateTime.Now.AddDays(-1) },
+                new Mail { MailId = 2, MailTopic = "Project Update", MailContent = "The project is progressing well.", Sender = "Jane Smith", CreatedDate = DateTime.Now.AddDays(-2) },
+            };
         }
     }
 }

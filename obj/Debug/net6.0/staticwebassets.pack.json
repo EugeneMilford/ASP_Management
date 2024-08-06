@@ -201,6 +201,38 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office01.jpeg",
+      "PackagePath": "staticwebassets\\img\\office01.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office02.jpeg",
+      "PackagePath": "staticwebassets\\img\\office02.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office03.jpeg",
+      "PackagePath": "staticwebassets\\img\\office03.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office04.jpeg",
+      "PackagePath": "staticwebassets\\img\\office04.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office_about.jpeg",
+      "PackagePath": "staticwebassets\\img\\office_about.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office_head01.jpeg",
+      "PackagePath": "staticwebassets\\img\\office_head01.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office_head02.jpeg",
+      "PackagePath": "staticwebassets\\img\\office_head02.jpeg"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office_head03.png",
+      "PackagePath": "staticwebassets\\img\\office_head03.png"
+    },
+    {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\js\\cal.js",
       "PackagePath": "staticwebassets\\js\\cal.js"
     },

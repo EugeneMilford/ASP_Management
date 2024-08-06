@@ -74,516 +74,292 @@
           </div>
           <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  Mail
-                </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                    </li>
-                  </ul>
-                </div>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 300px;">
-                      <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                   </div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
-                  </div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
 
-            <!-- DIRECT CHAT -->
-            <div class="card direct-chat direct-chat-primary">
-              <div class="card-header">
-                <h3 class="card-title">Messages</h3>
-
-                <div class="card-tools">
-                  <span title="3 New Messages" class="badge badge-primary">3</span>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
-                    <i class="fas fa-comments"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-left">Alexander Pierce</span>
-                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      Is this template really for free? That's unbelievable!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-right">Sarah Bullock</span>
-                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      You better believe it!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-left">Alexander Pierce</span>
-                      <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      Working with AdminLTE on a great new app! Wanna join?
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-infos clearfix">
-                      <span class="direct-chat-name float-right">Sarah Bullock</span>
-                      <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                    </div>
-                    <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      I would love to.
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                </div>
-                <!--/.direct-chat-messages-->
-
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts">
-                  <ul class="contacts-list">
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Avatar">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Count Dracula
-                            <small class="contacts-list-date float-right">2/28/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">How have you been? I was...</span>
+        <!-- Feature Start -->
+        <div class="container-fluid feature py-5">
+            <div class="container py-5">
+                <div class="row g-4">
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="feature-item">
+                            <img src="~/img/office_head01.jpeg" class="img-fluid rounded w-100" alt="Image">
+                            <div class="feature-content p-4">
+                                <div class="feature-content-inner">
+                                    <h4>Efficient Scheduling</h4>
+                                    <p>
+                                        Manage your office schedule seamlessly with our advanced scheduling system, ensuring no overlap and optimal use of time.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Avatar">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Sarah Doe
-                            <small class="contacts-list-date float-right">2/23/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">I will be waiting for...</span>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="feature-item">
+                            <img src="/img/office_head02.jpeg" class="img-fluid rounded w-100" alt="Image">
+                            <div class="feature-content p-4">
+                                <div class="feature-content-inner">
+                                    <h4>Task Management</h4>
+                                    <p>
+                                        Keep track of all tasks and projects, assign responsibilities, and monitor progress to ensure timely completion and high productivity.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Avatar">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Nadia Jolie
-                            <small class="contacts-list-date float-right">2/20/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">I'll call you back at...</span>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="feature-item">
+                            <img src="~/img/office_head03.png" class="img-fluid rounded w-100" alt="Image">
+                            <div class="feature-content p-4">
+                                <div class="feature-content-inner">
+                                    <h4>Employee Collaboration</h4>
+                                    <p>
+                                        Enhance teamwork and communication with our integrated collaboration tools, making it easy for employees to share information and work together.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Avatar">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Nora S. Vans
-                            <small class="contacts-list-date float-right">2/10/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">Where is your new...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Avatar">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            John K.
-                            <small class="contacts-list-date float-right">1/27/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">Can I take a look at...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Avatar">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Kenneth M.
-                            <small class="contacts-list-date float-right">1/4/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">Never mind I found...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                  </ul>
-                  <!-- /.contacts-list -->
+                    </div>
                 </div>
-                <!-- /.direct-chat-pane -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                    <span class="input-group-append">
-                      <button type="button" class="btn btn-primary">Send</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer-->
             </div>
-            <!--/.direct-chat -->
-
-            <!-- TO DO List -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="ion ion-clipboard mr-1"></i>
-                  To Do List
-                </h3>
-
-                <div class="card-tools">
-                  <ul class="pagination pagination-sm">
-                    <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <ul class="todo-list" data-widget="todo-list">
-                  <li>
-                    <!-- drag handle -->
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <!-- checkbox -->
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                      <label for="todoCheck1"></label>
-                    </div>
-                    <!-- todo text -->
-                    <span class="text">Design a nice theme</span>
-                    <!-- Emphasis label -->
-                    <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                    <!-- General tools such as edit or delete-->
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
-                      <label for="todoCheck2"></label>
-                    </div>
-                    <span class="text">Make the theme responsive</span>
-                    <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                      <label for="todoCheck3"></label>
-                    </div>
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                      <label for="todoCheck4"></label>
-                    </div>
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                      <label for="todoCheck5"></label>
-                    </div>
-                    <span class="text">Check your messages and notifications</span>
-                    <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fas fa-ellipsis-v"></i>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </span>
-                    <div  class="icheck-primary d-inline ml-2">
-                      <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                      <label for="todoCheck6"></label>
-                    </div>
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
-                    <div class="tools">
-                      <i class="fas fa-edit"></i>
-                      <i class="fas fa-trash-o"></i>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
-              </div>
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-            <!-- Map card -->
-            <div class="card bg-gradient-primary">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-map-marker-alt mr-1"></i>
-                  Projects
-                </h3>
-                <!-- card tools -->
-                <div class="card-tools">
-                  <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                    <i class="far fa-calendar-alt"></i>
-                  </button>
-                  <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <div class="card-body">
-                <div id="world-map" style="height: 250px; width: 100%;"></div>
-              </div>
-              <!-- /.card-body-->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-2"></div>
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-3"></div>
-                    <div class="text-white">Sales</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.card -->
-
-            <!-- solid sales graph -->
-            <div class="card bg-gradient-info">
-              <div class="card-header border-0">
-                <h3 class="card-title">
-                  <i class="fas fa-th mr-1"></i>
-                  Bug Tracking
-                </h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">Mail-Orders</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">In-Store</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-
-            <!-- Calendar -->
-            <div class="card bg-gradient-success">
-              <div class="card-header border-0">
-
-                <h3 class="card-title">
-                  <i class="far fa-calendar-alt"></i>
-                  Calendar
-                </h3>
-                <!-- tools card -->
-                <div class="card-tools">
-                  <!-- button with a dropdown -->
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-                      <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="dropdown-menu" role="menu">
-                      <a href="#" class="dropdown-item">Add new event</a>
-                      <a href="#" class="dropdown-item">Clear events</a>
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item">View calendar</a>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body pt-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-            </div>
-          </section>
         </div>
+
+        <!-- About Start -->
+        <div class="container-fluid about pb-5">
+            <div class="container pb-5">
+                <div class="row g-5">
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div>
+                            <h4 class="text-primary">About Our Office Management System</h4>
+                            <h1 class="display-5 mb-4">Streamline Your Office Operations with Ease</h1>
+                            <p class="mb-5">
+                                Our comprehensive office management system is designed to enhance productivity and streamline workflows. Whether you need to manage events, handle mail, communicate with your team, or track bugs, our platform has you covered. With real-time updates, seamless collaboration, and a user-friendly interface, managing your office operations has never been easier.
+                            </p>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-calendar-alt fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Events and Calendar</h4>
+                                            <p>Organize and schedule your meetings, appointments, and deadlines with our intuitive events and calendar module.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-envelope fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Mail and Messaging</h4>
+                                            <p>
+                                                Stay connected with your team through our integrated mail and messaging features. Communicate effortlessly, share files, and keep everyone in the loop.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-bug fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Bug Tracking</h4>
+                                            <p>Efficiently manage and resolve issues with our robust bug tracking system, ensuring smooth and error-free operations.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-user-shield fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Secure and Reliable</h4>
+                                            <p>Your data is protected with advanced security measures, providing you with peace of mind in all your office management tasks.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="position-relative rounded">
+                            <div class="rounded" style="margin-top: 40px;">
+                                <div class="row g-0">
+                                    <div class="col-lg-12">
+                                        <div class="rounded mb-4">
+                                            <img src="~/img/office_about.jpeg" class="img-fluid rounded w-100" alt="">
+                                        </div>
+                                        <div class="row gx-4 gy-0">
+                                            <div class="col-6">
+                                                <div class="counter-item bg-primary rounded text-center p-4 h-100">
+                                                    <div class="counter-item-icon mx-auto mb-3">
+                                                        <i class="fas fa-thumbs-up fa-3x text-white"></i>
+                                                    </div>
+                                                    <div class="counter-counting mb-3">
+                                                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">150</span>
+                                                        <span class="h1 fw-bold text-white">K +</span>
+                                                    </div>
+                                                    <h5 class="text-white mb-0">Satisfied Clients</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="counter-item bg-dark rounded text-center p-4 h-100">
+                                                    <div class="counter-item-icon mx-auto mb-3">
+                                                        <i class="fas fa-award fa-3x text-white"></i>
+                                                    </div>
+                                                    <div class="counter-counting mb-3">
+                                                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">20</span>
+                                                        <span class="h1 fw-bold text-white">+</span>
+                                                    </div>
+                                                    <h5 class="text-white mb-0">Years of Experience</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded bg-primary p-4 position-absolute d-flex justify-content-center" style="width: 90%; height: 80px; top: -40px; left: 50%; transform: translateX(-50%);">
+                                <h3 class="mb-0 text-white">Leading the Industry</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">Our Blog</h4>
+                    <h1 class="display-5 mb-4">Latest Blog & Articles</h1>
+                    <p class="mb-0">
+                        Stay updated with the latest insights, tips, and best practices for effective office management.
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="~/img/office01.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Tips</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">How to Improve Office Productivity</a>
+                                <p class="mb-4">
+                                    Discover effective strategies to boost productivity in your office and enhance team collaboration...
+                                </p>
+                                <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal1">Read More <i class="fas fa-arrow-right ms-2"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="~/img/office02.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Insight</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Effective Communication in the Workplace</a>
+                                <p class="mb-4">
+                                    Learn how to foster effective communication among team members to ensure smooth office operations...
+                                </p>
+                                <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal2">Read More <i class="fas fa-arrow-right ms-2"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#">
+                                    <img src="~/img/office03.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                </a>
+                                <div class="blog-category py-2 px-4">Best Practices</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4">Optimizing Office Layout for Efficiency</a>
+                                <p class="mb-4">
+                                    Explore the best office layout designs that promote efficiency and a positive working environment...
+                                </p>
+                                <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal3">Read More <i class="fas fa-arrow-right ms-2"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+        <!-- Modal 1 -->
+        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal1Label">How to Improve Office Productivity</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Improving office productivity is crucial for achieving business goals and maintaining a competitive edge. One effective strategy is to implement 
+                            time management techniques such as the Pomodoro Technique, which encourages employees to work in focused intervals with short breaks in between. 
+                            This method helps to prevent burnout and keeps the team energized throughout the day.
+                            <br />
+                            Another key aspect of boosting productivity is organizing the workspace efficiently. A clutter-free environment can significantly reduce distractions 
+                            and improve focus. Encourage employees to keep their desks tidy and invest in storage solutions to keep office supplies and documents in order. 
+                            Additionally, consider creating designated quiet areas for tasks that require deep concentration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal2Label">Effective Communication in the Workplace</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Effective communication is the backbone of any successful office. Clear and open communication helps to prevent misunderstandings, reduces conflicts, and ensures that 
+                            everyone is aligned with the company’s goals. Start by establishing regular channels of communication, such as weekly team meetings and daily stand-ups, to keep 
+                            everyone informed and engaged.
+                            <br />
+                            Paragraph 2: It's also important to choose the right communication tools for your team. Email is great for formal communication, but instant messaging apps like 
+                            Slack can facilitate quick, informal interactions. Video conferencing tools are essential for remote teams, allowing face-to-face communication even when 
+                            employees are working from different locations. Ensure that all team members are comfortable using these tools and understand the best practices for each.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal3Label">Optimizing Office Layout for Efficiency</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            The layout of your office can have a significant impact on efficiency and productivity. An open office layout promotes collaboration and communication among team members, 
+                            making it easier for employees to share ideas and work together on projects. However, it’s important to balance openness with quiet zones where employees can focus on 
+                            individual tasks without distractions.
+                            <br />
+                            Ergonomics should also be a priority when designing your office layout. Invest in ergonomic furniture, such as adjustable chairs and standing desks, to ensure that 
+                            employees are comfortable and can maintain good posture throughout the day. Proper lighting and ventilation are also crucial for creating a healthy work environment 
+                            that minimizes fatigue and increases productivity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
       </div>
 </section>
 

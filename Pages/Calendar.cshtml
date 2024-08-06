@@ -1,150 +1,87 @@
 ﻿@page
 @model OfficeManagement.Pages.CalendarModel
 @{
+    ViewData["Title"] = "Calendar";
 }
 
-<div class="calendar-content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Calendar</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Calendar</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
+<div id='calendar'></div>
 
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8">
-                    <div id="calendar"></div>
-                </div>
-                <div class="col-md-4">
-                    <h3>Add Entry</h3>
-                    <form id="calendarForm">
-                        <div class="mb-3">
-                            <label for="entryDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="entryDate" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="entryDescription" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="entryDescription" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-@* <!-- Content Header -->
-<div class="container">
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Calendar</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/Index">Home</a></li>
-              <li class="breadcrumb-item active">Calendar</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="sticky-top mb-3">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Draggable Events</h4>
-                </div>
-                <div class="card-body">
-                  <!-- the events -->
-                  <div id="external-events">
-                    <div class="external-event bg-success">Lunch</div>
-                    <div class="external-event bg-warning">Go home</div>
-                    <div class="external-event bg-info">Do homework</div>
-                    <div class="external-event bg-primary">Work on UI design</div>
-                    <div class="external-event bg-danger">Sleep tight</div>
-                    <div class="checkbox">
-                      <label for="drop-remove">
-                        <input type="checkbox" id="drop-remove">
-                        remove after drop
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Create Event</h3>
-                </div>
-                <div class="card-body">
-                  <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                    <ul class="fc-color-picker" id="color-chooser">
-                      <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
-                    </ul>
-                  </div>
-                  <!-- /btn-group -->
-                  <div class="input-group">
-                    <input id="new-event" type="text" class="form-control" placeholder="Event Title">
-
-                    <div class="input-group-append">
-                      <button id="add-new-event" type="button" class="btn btn-primary">Add</button>
-                    </div>
-                    <!-- /btn-group -->
-                  </div>
-                  <!-- /input-group -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card card-primary">
-              <div class="card-body p-0">
-                <div id="calendar"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    </div>
-
-    
-<script src='fullcalendar/dist/index.global.js'></script>
 <script>
-var calendar = new FullCalendar.Calendar(calendarEl, {
-  themeSystem: 'Cosmo'
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            editable: true,
+            selectable: true,
+            events: '/Calendar/GetEvents', // Endpoint to fetch events
+            eventClick: function (info) {
+                // Handle event click (view/edit)
+                alert('Event: ' + info.event.title);
+            },
+            select: function (info) {
+                // Handle event creation
+                var title = prompt('Enter Event Title:');
+                if (title) {
+                    var eventData = {
+                        title: title,
+                        start: info.startStr,
+                        end: info.endStr
+                    };
+                    calendar.addEvent(eventData);
+                    // Save event to the server
+                    $.post('/Calendar/AddEvent', eventData, function (response) {
+                        if (response.success) {
+                            alert('Event added successfully');
+                        }
+                    });
+                }
+                calendar.unselect();
+            },
+            eventDrop: function (info) {
+                // Handle event drag & drop
+                var eventData = {
+                    id: info.event.id,
+                    start: info.event.startStr,
+                    end: info.event.endStr
+                };
+                // Update event on the server
+                $.post('/Calendar/UpdateEvent', eventData, function (response) {
+                    if (response.success) {
+                        alert('Event updated successfully');
+                    }
+                });
+            },
+            eventResize: function (info) {
+                // Handle event resize
+                var eventData = {
+                    id: info.event.id,
+                    start: info.event.startStr,
+                    end: info.event.endStr
+                };
+                // Update event on the server
+                $.post('/Calendar/UpdateEvent', eventData, function (response) {
+                    if (response.success) {
+                        alert('Event updated successfully');
+                    }
+                });
+            },
+            eventRemove: function (info) {
+                // Handle event deletion
+                var eventData = {
+                    id: info.event.id
+                };
+                // Delete event from the server
+                $.post('/Calendar/DeleteEvent', eventData, function (response) {
+                    if (response.success) {
+                        alert('Event deleted successfully');
+                    }
+                });
+            }
+        });
+        calendar.render();
+    });
+</script>
 
-</script> *@
-
+<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
