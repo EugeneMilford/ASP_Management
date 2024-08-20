@@ -1,12 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OfficeManagement.Data;
+using Microsoft.AspNetCore.Identity;
+using OfficeManagement.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<OfficeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("OfficeContext") ?? throw new InvalidOperationException("Connection string 'OfficeContext' not found.")));
+
+builder.Services.AddDefaultIdentity<OfficeUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<OfficeIdentityContext>();
 
 var app = builder.Build();
 
@@ -22,6 +27,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
