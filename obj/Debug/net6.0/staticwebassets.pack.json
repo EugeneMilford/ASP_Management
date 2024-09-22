@@ -178,7 +178,7 @@
     },
     {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OfficeManagement.bundle.scp.css",
-      "PackagePath": "staticwebassets\\OfficeManagement.bundle.scp.css"
+      "PackagePath": "staticwebassets\\OfficeManagement.x1mw6wau3v.bundle.scp.css"
     },
     {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\css\\Office.css",
@@ -467,6 +467,10 @@
     {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.OfficeManagement.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.OfficeManagement.Microsoft.AspNetCore.StaticWebAssets.props",
