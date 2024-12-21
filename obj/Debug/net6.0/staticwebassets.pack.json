@@ -201,6 +201,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\hero-bg.png",
+      "PackagePath": "staticwebassets\\img\\hero-bg.png"
+    },
+    {
+      "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\hero-img.png",
+      "PackagePath": "staticwebassets\\img\\hero-img.png"
+    },
+    {
       "Id": "D:\\Projects\\ASP NET Office Management\\OfficeManagement\\wwwroot\\img\\office01.jpeg",
       "PackagePath": "staticwebassets\\img\\office01.jpeg"
     },

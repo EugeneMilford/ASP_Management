@@ -40,6 +40,9 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+// Set the default page to welcome
+app.MapGet("/", () => Results.Redirect("/Welcome"));
+
 app.Run();
 
 //using Microsoft.EntityFrameworkCore;

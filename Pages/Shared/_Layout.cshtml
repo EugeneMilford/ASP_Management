@@ -159,27 +159,54 @@
     <!-- /.sidebar -->
 </aside>
 
-  <div class="content-wrapper">
-      <section class="content">
-          <div class="container-fluid">
-        <div class="row">
-            @RenderBody()
-            @RenderSection("scripts", required: false)
-            </div>
-        </div>
-      </section>
-  </div>
+        <!-- Content -->
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        @RenderBody()
+                        @RenderSection("scripts", required: false)
+                    </div>
+                </div>
+            </section>
 
-  <footer class="main-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p class="mb-0"><strong>Copyright &copy; 2024</strong></p>
-            </div>
+            <!-- Footer -->
+            <footer class="bg-dark text-light py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- Office Address -->
+                        <div class="col-md-4 mb-3 text-center">
+                            <h5>Office Address</h5>
+                            <p>
+                                Office Management HQ<br>
+                                123 Business Lane<br>
+                                City, State, ZIP<br>
+                                Phone: (123) 456-7890<br>
+                                Email: info@officemanagement.com
+                            </p>
+                        </div>
+                        <!-- Office Hours -->
+                        <div class="col-md-4 mb-3 text-center">
+                            <h5>Office Hours</h5>
+                            <p>
+                                <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                                <strong>Saturday:</strong> 10:00 AM - 3:00 PM<br>
+                                <strong>Sunday:</strong> Closed
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="border-light">
+                    <div class="row">
+                        <div class="col text-center">
+                            <p class="mb-0">&copy; 2024 Office Management. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-</footer>
-    </div>
+
+    
 
     <script src="~/js/site.js"></script>
 
