@@ -12,6 +12,10 @@ namespace OfficeManagement.Data
 {
     public class OfficeContext : IdentityDbContext<OfficeUser>
     {
+        public OfficeContext()
+        {
+        }
+
         public OfficeContext(DbContextOptions<OfficeContext> options)
             : base(options)
         {
@@ -45,19 +49,17 @@ namespace OfficeManagement.Data
             modelBuilder.Entity<Mail>().ToTable("mail");
             modelBuilder.Entity<Profile>().ToTable("users"); // This is the users table for profiles
             modelBuilder.Entity<BugTracking>().ToTable("bug");
-
-            // Configuring OfficeUser entity
-            modelBuilder.Entity<OfficeUser>(entity =>
+            modelBuilder.Entity<BugTracking>().ToTable("identityusers");
+        }
+        public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<OfficeUser>
+        {
+            public void Configure(EntityTypeBuilder<OfficeUser> builder)
             {
-                // Ensure correct table mapping
-                entity.ToTable("OfficeUsers");
-
-                // Configure properties
-                entity.Property(e => e.FirstName).HasMaxLength(255);
-                entity.Property(e => e.LastName).HasMaxLength(255);
-                entity.Property(e => e.Address).HasMaxLength(255);
-                entity.Property(e => e.UserRole).HasMaxLength(255);
-            });
+                builder.Property(u => u.FirstName).HasMaxLength(255);
+                builder.Property(u => u.LastName).HasMaxLength(255);
+                builder.Property(u => u.Address).HasMaxLength(255);
+                builder.Property(u => u.UserRole).HasMaxLength(255);
+            }
         }
     }
 }

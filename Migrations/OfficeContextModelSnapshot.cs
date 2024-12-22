@@ -164,8 +164,7 @@ namespace OfficeManagement.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -179,12 +178,10 @@ namespace OfficeManagement.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -220,8 +217,7 @@ namespace OfficeManagement.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("UserRole")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -233,7 +229,7 @@ namespace OfficeManagement.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("OfficeUsers", (string)null);
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Activity", b =>
@@ -347,7 +343,7 @@ namespace OfficeManagement.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("bug", (string)null);
+                    b.ToTable("identityusers", (string)null);
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Mail", b =>

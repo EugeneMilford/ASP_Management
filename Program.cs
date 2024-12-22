@@ -22,6 +22,14 @@ builder.Services.AddIdentity<OfficeUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<OfficeContext>()
 .AddDefaultTokenProviders();
 
+// Enable session support
+builder.Services.AddDistributedMemoryCache(); // Required for session state
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout duration
+    options.Cookie.HttpOnly = true; // Ensure the session cookie is only accessible via HTTP requests
+    options.Cookie.IsEssential = true; // Mark session cookie as essential
+});
 
 builder.Services.AddTransient<IEmailSender, OfficeManagement.Services.EmailSender>();
 
