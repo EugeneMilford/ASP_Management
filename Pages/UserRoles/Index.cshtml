@@ -53,7 +53,7 @@
                             @Html.DisplayNameFor(model => model.Role[0].EmailAddress)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role[0].UserRole)
+                            @Html.DisplayNameFor(model => model.Role[0].RoleOfUser)
                         </th>
                     </tr>
                 </thead>
@@ -74,7 +74,7 @@
                                 @Html.DisplayFor(modelItem => item.EmailAddress)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.UserRole)
+                                @Html.DisplayFor(modelItem => item.RoleOfUser)
                             </td>
                             <td>
                                 <a asp-page="./Edit" asp-route-id="@item.RoleId">

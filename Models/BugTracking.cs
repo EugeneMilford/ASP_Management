@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OfficeManagement.Areas.Identity.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace OfficeManagement.Models
 {
@@ -21,5 +22,8 @@ namespace OfficeManagement.Models
         public string Status { get; set; }
         [Required]
         public string Submitter { get; set; }
+        public string UserId { get; set; }
+
+        public OfficeUser User { get; set; }
     }
 }

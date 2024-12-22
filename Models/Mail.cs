@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeManagement.Areas.Identity.Data;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OfficeManagement.Models
@@ -22,5 +23,8 @@ namespace OfficeManagement.Models
         [Required]
         [Display(Name = "Date Created")]
         public DateTime CreatedDate { get; set; }
+        public string UserId { get; set; }
+
+        public OfficeUser User { get; set; }
     }
 }
