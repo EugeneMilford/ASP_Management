@@ -606,8 +606,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>g6anml3icq</Fingerprint>
-      <Integrity>SI0ljdNxSBwv1AmMqrdDtp0aWhL3iWws+oUh6QfW59M=</Integrity>
+      <Fingerprint>htuop4tspv</Fingerprint>
+      <Integrity>Bcv14DmopwpF+r488Xl8shHPpV06BZjx2K/8L3c4uAo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Office.css'))</OriginalItemSpec>

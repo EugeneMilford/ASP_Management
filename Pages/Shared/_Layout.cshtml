@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -14,212 +15,143 @@
         <script src="~/js/cal.js"></script>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- Left navbar links -->
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-widget="pushmenu" role="button"><i
-                            class="fas fa-bars"></i></a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="index3.html" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="#" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Right navbar links -->
-            <div class="container-fluid">
-                <ul class="navbar-nav ml-auto">
-            <!-- Navbar Search -->
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-widget="navbar-search" role="button">
-                    <i class="fas fa-search"></i>
+        <div class="wrapper">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <a href="index3.html" class="brand-link">
+                    <span class="brand-text font-weight-light">Management System</span>
                 </a>
-                <div class="navbar-search-block">
-                    <form class="form-inline">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <button class="btn btn-navbar" type="button" data-bs-widget="navbar-search">
-                                    <i class="fas fa-times"></i>
-                                </button>
+                <div class="sidebar">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/Index">
+                                    <i class="fas fa-tachometer-alt nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/UserProfiles/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Profile</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/StaffMembers/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Staff</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/UserRoles/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Roles</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/OfficeBugTracking/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Bug Tracking</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/OfficeProjects/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Projects</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/OfficeEvents/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Events</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/UserMail/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Mail</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/UserMessages/Index">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Messages</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Calendar">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>Calendar</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/FAQ">
+                                    <i class="fas fa-th nav-icon"></i>
+                                    <p>FAQ</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Content -->
+            <div class="content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <partial name="_LoginPartial" />
+                </nav>
+
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @RenderBody()
+                            @RenderSection("scripts", required: false)
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="bg-dark text-light py-5">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Office Address -->
+                            <div class="col-md-4 mb-3 text-center">
+                                <h5>Office Address</h5>
+                                <p>
+                                    Office Management HQ<br>
+                                    123 Business Lane<br>
+                                    Cape Town<br>
+                                    Phone: (123) 456-7890<br>
+                                    Email: info@officemanagement.com
+                                </p>
+                            </div>
+                            <!-- Office Hours -->
+                            <div class="col-md-4 mb-3 text-center">
+                                <h5>Office Hours</h5>
+                                <p>
+                                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                                    <strong>Saturday:</strong> 10:00 AM - 3:00 PM<br>
+                                    <strong>Sunday:</strong> Closed
+                                </p>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-widget="fullscreen" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-        <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">Management System</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a class="nav-link active" href="/Index">
-                        <i class="fas fa-tachometer-alt nav-icon"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UserProfiles/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Profile</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/StaffMembers/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Staff</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UserRoles/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Roles</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/OfficeBugTracking/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Bug Tracking</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/OfficeProjects/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Projects</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/OfficeEvents/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Events</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UserMail/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Mail</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UserMessages/Index">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Messages</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Calendar">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>Calendar</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/FAQ">
-                        <i class="fas fa-th nav-icon"></i>
-                        <p>FAQ</p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-</aside>
-
-        <!-- Content -->
-        <div class="content-wrapper">
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        @RenderBody()
-                        @RenderSection("scripts", required: false)
-                    </div>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <footer class="bg-dark text-light py-5">
-                <div class="container">
-                    <div class="row">
-                        <!-- Office Address -->
-                        <div class="col-md-4 mb-3 text-center">
-                            <h5>Office Address</h5>
-                            <p>
-                                Office Management HQ<br>
-                                123 Business Lane<br>
-                                City, State, ZIP<br>
-                                Phone: (123) 456-7890<br>
-                                Email: info@officemanagement.com
-                            </p>
-                        </div>
-                        <!-- Office Hours -->
-                        <div class="col-md-4 mb-3 text-center">
-                            <h5>Office Hours</h5>
-                            <p>
-                                <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
-                                <strong>Saturday:</strong> 10:00 AM - 3:00 PM<br>
-                                <strong>Sunday:</strong> Closed
-                            </p>
+                        <hr class="border-light">
+                        <div class="row">
+                            <div class="col text-center">
+                                <p class="mb-0">&copy; 2024 Office Management. All Rights Reserved.</p>
+                            </div>
                         </div>
                     </div>
-                    <hr class="border-light">
-                    <div class="row">
-                        <div class="col text-center">
-                            <p class="mb-0">&copy; 2024 Office Management. All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
-    </div>
 
-    
+        <script src="~/js/site.js"></script>
 
-    <script src="~/js/site.js"></script>
-
-    <!-- jQuery -->
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-<script src="~/js/calendar.js"></script>
-
-
-
-</body>
-    
+        <!-- jQuery -->
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="~/js/calendar.js"></script>
+    </body>   
 </html>
 
 
