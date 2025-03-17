@@ -16,7 +16,7 @@ builder.Services.AddDbContext<OfficeContext>(options =>
 builder.Services.AddIdentity<OfficeUser, IdentityRole>(options =>
 {
     // Configure identity options here as needed
-    options.SignIn.RequireConfirmedAccount = true; 
+    options.SignIn.RequireConfirmedAccount = true;
 })
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<OfficeContext>()
@@ -49,7 +49,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

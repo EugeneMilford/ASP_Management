@@ -175,6 +175,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Terms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVybXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/UserMail/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlck1haWxcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -253,6 +257,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/UserRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclJvbGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ASP NET Office Management/OfficeManagement/Pages/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VsY29tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ASP NET Office Management/OfficeManagement/Pages/_ViewImports.cshtml]

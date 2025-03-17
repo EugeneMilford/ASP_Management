@@ -16,70 +16,19 @@
     <link rel="stylesheet" href="~/css/Office.css" />
     <style>
         body {
-            background-color: #e9ecef; /* Softer light background */
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #212529; /* Default font color */
-        }
-
-        #hero {
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
             text-align: center;
-            background: linear-gradient(145deg, #ffffff, #e8f0fe);
-            box-shadow: 5px 5px 15px #c7c9cc, -5px -5px 15px #ffffff; /* Soft shadow effect */
         }
 
         .hero-heading {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #343a40;
-            margin-bottom: 10px;
-        }
-
-        .hero-subheading {
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin-top: 10px;
-            color: #495057;
-        }
-
-        .btn-get-started {
-            background-color: #007bff; /* Primary color */
-            transition: background-color 0.3s;
-        }
-
-            .btn-get-started:hover {
-                background-color: #0056b3; /* Darker on hover */
-            }
-
-        .btn-demo {
-            background-color: #6c757d; /* Secondary color */
-            transition: background-color 0.3s;
-            border: none;
-        }
-
-            .btn-demo:hover {
-                background-color: #5a6268; /* Darker on hover */
-            }
-
-        .hero-img img {
-            max-width: 100%;
-            border-radius: 15px; /* Rounded image corners */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .d-flex {
-            margin-top: 20px; /* Spacing between buttons */
-        }
-
-        .login-partial {
-            color: green;
-            margin-top: 30px; /* Spacing above login partial */
-            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
@@ -88,14 +37,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 class="hero-heading" data-aos="fade-up">Welcome to Office Management</h1>
-                    <h2 class="hero-subheading" data-aos="fade-up" data-aos-delay="400">A team of talented individuals ready to assist you</h2>
+                    <h1 class="hero-heading">Welcome to Office Management</h1>
+                    <h2 class="hero-subheading">Streamline your projects, tasks, and team collaboration in one place.</h2>
                     <div class="centered-container">
                         @await Html.PartialAsync("_LoginPartial")
                     </div>
-                    
+                    <form method="post" asp-page-handler="DemoLogin" class="d-inline">
+                        <button type="submit" name="role" value="DemoUser" class="btn btn-outline-primary">Demo User</button>
+                        <button type="submit" name="role" value="DemoAdmin" class="btn btn-outline-warning">Demo Admin</button>
+                    </form>
                 </div>
-                <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                <div class="col-lg-6 hero-img">
                     <img src="~/img/hero-img.png" class="img-fluid" alt="Hero Image">
                 </div>
             </div>

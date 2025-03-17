@@ -169,7 +169,7 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
                     await _userManager.ConfirmEmailAsync(user, emailConfirmationToken);
 
                     // Redirecting the user directly to "/Index"
-                    return LocalRedirect("~/Index"); // LocalRedirect ensures safe redirection
+                    return LocalRedirect("~/Terms"); // LocalRedirect ensures safe redirection
                 }
 
                 foreach (var error in result.Errors)
