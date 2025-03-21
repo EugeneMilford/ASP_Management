@@ -7,6 +7,15 @@
 
 <section class="content-header">
     <div class="container-fluid">
+        <!-- Notification if profile is incomplete -->
+        @if (User.Identity.IsAuthenticated && !Model.IsProfileComplete && Model.LoggedInRole != "DemoUser" && Model.LoggedInRole != "DemoAdmin")
+        {
+            <div class="alert alert-warning" role="alert">
+                Your profile is incomplete. Please complete your profile details.
+                <a href="/UserProfiles/Index" class="btn btn-primary btn-sm ml-2">Complete Profile</a>
+            </div>
+        }
+
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0">Dashboard</h1>
