@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OfficeManagement.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -204,7 +204,7 @@ namespace OfficeManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "identityusers",
+                name: "bug",
                 columns: table => new
                 {
                     TicketId = table.Column<int>(type: "int", nullable: false)
@@ -220,9 +220,9 @@ namespace OfficeManagement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_identityusers", x => x.TicketId);
+                    table.PrimaryKey("PK_bug", x => x.TicketId);
                     table.ForeignKey(
-                        name: "FK_identityusers_AspNetUsers_UserId",
+                        name: "FK_bug_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
@@ -332,7 +332,10 @@ namespace OfficeManagement.Migrations
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateJoined = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsTemporary = table.Column<bool>(type: "bit", nullable: false),
+                    TempUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -345,7 +348,7 @@ namespace OfficeManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "users",
+                name: "Summary",
                 columns: table => new
                 {
                     ProfileId = table.Column<int>(type: "int", nullable: false)
@@ -365,9 +368,9 @@ namespace OfficeManagement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_users", x => x.ProfileId);
+                    table.PrimaryKey("PK_Summary", x => x.ProfileId);
                     table.ForeignKey(
-                        name: "FK_users_AspNetUsers_UserId",
+                        name: "FK_Summary_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
@@ -423,8 +426,8 @@ namespace OfficeManagement.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_identityusers_UserId",
-                table: "identityusers",
+                name: "IX_bug_UserId",
+                table: "bug",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -453,8 +456,8 @@ namespace OfficeManagement.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_UserId",
-                table: "users",
+                name: "IX_Summary_UserId",
+                table: "Summary",
                 column: "UserId");
         }
 
@@ -482,7 +485,7 @@ namespace OfficeManagement.Migrations
                 name: "assignment");
 
             migrationBuilder.DropTable(
-                name: "identityusers");
+                name: "bug");
 
             migrationBuilder.DropTable(
                 name: "mail");
@@ -500,7 +503,7 @@ namespace OfficeManagement.Migrations
                 name: "staff");
 
             migrationBuilder.DropTable(
-                name: "users");
+                name: "Summary");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

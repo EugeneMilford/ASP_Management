@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
 namespace OfficeManagement.Pages.StaffMembers
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public CreateModel(OfficeManagement.Data.OfficeContext context)
+        public CreateModel(
+            OfficeContext context,
+            UserManager<OfficeUser> userManager) 
         {
             _context = context;
+            _userManager = userManager; // Initialize
         }
 
         public IActionResult OnGet()
@@ -26,20 +29,26 @@ namespace OfficeManagement.Pages.StaffMembers
 
         [BindProperty]
         public Staff Staff { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid)
                 return Page();
+
+            var currentUser = await _userManager.GetUserAsync(User); 
+
+            if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin")) 
+            {
+                Staff.IsTemporary = true;
+                Staff.TempUserId = currentUser.Id;
             }
 
             _context.Personnel.Add(Staff);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }
 }
+

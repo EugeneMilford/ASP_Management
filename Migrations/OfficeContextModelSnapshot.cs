@@ -343,7 +343,7 @@ namespace OfficeManagement.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("identityusers", (string)null);
+                    b.ToTable("bug", (string)null);
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Mail", b =>
@@ -466,7 +466,7 @@ namespace OfficeManagement.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("users", (string)null);
+                    b.ToTable("Summary");
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Project", b =>
@@ -569,6 +569,12 @@ namespace OfficeManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -578,6 +584,9 @@ namespace OfficeManagement.Migrations
 
                     b.Property<string>("Surname")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TempUserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
