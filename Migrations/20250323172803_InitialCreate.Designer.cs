@@ -12,8 +12,8 @@ using OfficeManagement.Data;
 namespace OfficeManagement.Migrations
 {
     [DbContext(typeof(OfficeContext))]
-    [Migration("20241222155213_initialcreate")]
-    partial class initialcreate
+    [Migration("20250323172803_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -253,6 +253,15 @@ namespace OfficeManagement.Migrations
                     b.Property<DateTime>("EventTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TempUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -318,6 +327,12 @@ namespace OfficeManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Priority")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -334,6 +349,9 @@ namespace OfficeManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TempUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -345,7 +363,37 @@ namespace OfficeManagement.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("identityusers", (string)null);
+                    b.ToTable("bug", (string)null);
+                });
+
+            modelBuilder.Entity("OfficeManagement.Models.CalendarEvent", b =>
+                {
+                    b.Property<int>("CalendarId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CalendarId"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("End")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CalendarId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("calendar", (string)null);
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Mail", b =>
@@ -358,6 +406,9 @@ namespace OfficeManagement.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsSpam")
+                        .HasColumnType("bit");
 
                     b.Property<string>("MailContent")
                         .IsRequired()
@@ -389,23 +440,26 @@ namespace OfficeManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"), 1L, 1);
 
-                    b.Property<string>("MessageBody")
+                    b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MessageSender")
+                    b.Property<string>("FromUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("Timestamp")
+                    b.Property<DateTime>("SentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("ToUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("MessageId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("FromUserId");
+
+                    b.HasIndex("ToUserId");
 
                     b.ToTable("message", (string)null);
                 });
@@ -468,7 +522,7 @@ namespace OfficeManagement.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("users", (string)null);
+                    b.ToTable("Summary");
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Project", b =>
@@ -486,12 +540,21 @@ namespace OfficeManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ProjectName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectUser")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TempUserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -515,6 +578,12 @@ namespace OfficeManagement.Migrations
                     b.Property<string>("EmailAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -525,6 +594,9 @@ namespace OfficeManagement.Migrations
 
                     b.Property<string>("Surname")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TempUserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -571,6 +643,12 @@ namespace OfficeManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -580,6 +658,9 @@ namespace OfficeManagement.Migrations
 
                     b.Property<string>("Surname")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TempUserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -674,22 +755,43 @@ namespace OfficeManagement.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("OfficeManagement.Models.CalendarEvent", b =>
+                {
+                    b.HasOne("OfficeManagement.Areas.Identity.Data.OfficeUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("OfficeManagement.Models.Mail", b =>
                 {
                     b.HasOne("OfficeManagement.Areas.Identity.Data.OfficeUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Message", b =>
                 {
-                    b.HasOne("OfficeManagement.Areas.Identity.Data.OfficeUser", "User")
+                    b.HasOne("OfficeManagement.Areas.Identity.Data.OfficeUser", "FromUser")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("FromUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.Navigation("User");
+                    b.HasOne("OfficeManagement.Areas.Identity.Data.OfficeUser", "ToUser")
+                        .WithMany()
+                        .HasForeignKey("ToUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("FromUser");
+
+                    b.Navigation("ToUser");
                 });
 
             modelBuilder.Entity("OfficeManagement.Models.Profile", b =>

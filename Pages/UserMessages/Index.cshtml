@@ -2,110 +2,118 @@
 @model OfficeManagement.Pages.UserMessages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Message Inbox";
 }
 
-<div class="container">
-    <!-- Content Header  -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Messages</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/Index">Home</a></li>
-                        <li class="breadcrumb-item active">Messages</li>
-                    </ol>
-                </div>
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.StatusMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-12">
+                <a asp-page="Create" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Send New Message
+                </a>
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-
-            <p>
-                <a asp-page="Create">Create New Message</a>
-            </p>
-
-            <!-- Timelime example  -->
-            <div class="row">
-                <div class="col-md-12">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @if (!Model.Messages.Any())
+                {
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> No messages in your inbox.
+                    </div>
+                }
+                else
+                {
                     <!-- The time line -->
                     <div class="timeline">
-                        @foreach (var message in Model.Messages)
+                        @{
+                            var currentDate = DateTime.MinValue;
+                            var groupedMessages = Model.Messages.OrderByDescending(m => m.SentDate)
+                            .GroupBy(m => m.SentDate.Date);
+                        }
+
+                        @foreach (var dateGroup in groupedMessages)
                         {
-                            <!-- timeline time label -->
                             <div class="time-label">
-                                <span class="bg-red">@message.Timestamp.ToString("dd MMM. yyyy")</span>
+                                <span class="bg-primary">@dateGroup.Key.ToString("dd MMM. yyyy")</span>
                             </div>
-                            <!-- /.timeline-label -->
-                            <!-- timeline item -->
-                            <div>
-                                <i class="fas fa-envelope bg-blue"></i>
-                                <div class="timeline-item">
-                                    <span class="time"><i class="fas fa-clock"></i> @message.Timestamp.ToString("HH:mm")</span>
-                                    <h3 class="timeline-header"><a href="#">@message.MessageSender</a> sent you a message</h3>
-                                    <div class="timeline-body">
-                                        @message.MessageBody
-                                    </div>
-                                    <div class="timeline-footer">
-                                        <a class="btn btn-primary btn-sm" asp-page="./Details" asp-route-id="@message.MessageId">Read more</a>
-                                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@message.MessageId">Delete</a>
+
+                            @foreach (var message in dateGroup)
+                            {
+                                <!-- Timeline item -->
+                                <div>
+                                    @{
+                                        // Set icon and color based on time
+                                        var iconClass = "fas fa-envelope";
+                                        var bgColor = "bg-blue";
+
+                                        // Today's messages get green background
+                                        if (message.SentDate.Date == DateTime.Today)
+                                        {
+                                            bgColor = "bg-green";
+                                        }
+                                        // Older messages get different color
+                                        else if ((DateTime.Now - message.SentDate).TotalDays > 7)
+                                        {
+                                            bgColor = "bg-purple";
+                                        }
+                                    }
+
+                                    <i class="@iconClass @bgColor"></i>
+                                    <div class="timeline-item">
+                                        <span class="time">
+                                            <i class="fas fa-clock"></i> @message.SentDate.ToString("HH:mm")
+                                        </span>
+                                        <h3 class="timeline-header">
+                                            <a href="#">@message.FromUser.FirstName @message.FromUser.LastName</a>
+                                            sent you a message
+                                        </h3>
+                                        <div class="timeline-body">
+                                            @message.Content
+                                        </div>
+                                        <div class="timeline-footer">
+                                            <a asp-page="Create" asp-route-id="@message.MessageId" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-reply"></i> Reply
+                                            </a>
+                                            <form method="post" class="d-inline">
+                                                <input type="hidden" name="messageId" value="@message.MessageId" />
+                                                <button type="submit" class="btn btn-danger btn-sm" asp-page-handler="Delete"
+                                                        onclick="return confirm('Are you sure you want to delete this message?');">
+                                                    <i class="fas fa-trash"></i> Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- END timeline item -->
+                                <!-- END timeline item -->
+                            }
                         }
-                        <!-- Add a final gray clock item to indicate end of timeline -->
+
+                        <!-- Timeline end -->
                         <div>
                             <i class="fas fa-clock bg-gray"></i>
                         </div>
                     </div>
-                </div>
-                <!-- /.col -->
+                }
             </div>
-            <!-- /.timeline -->
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
-@* <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Message[0].MessageSender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Message[0].MessageBody)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Message[0].Timestamp)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Message) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MessageSender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MessageBody)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timestamp)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.MessageId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.MessageId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.MessageId">Delete</a>
-            </td>
-        </tr>
+@section Scripts {
+    <script>
+        // Auto-hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert').alert('close');
+        }, 5000);
+    </script>
 }
-    </tbody>
-</table> *@

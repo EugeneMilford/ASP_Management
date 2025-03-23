@@ -1,45 +1,29 @@
 ﻿@page
 @model OfficeManagement.Pages.UserMessages.EditModel
-
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Message";
 }
 
-<h1>Edit</h1>
+<h1>Edit Message</h1>
 
-<h4>Message</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Message.MessageId" />
-            <div class="form-group">
-                <label asp-for="Message.MessageSender" class="control-label"></label>
-                <input asp-for="Message.MessageSender" class="form-control" />
-                <span asp-validation-for="Message.MessageSender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Message.MessageBody" class="control-label"></label>
-                <input asp-for="Message.MessageBody" class="form-control" />
-                <span asp-validation-for="Message.MessageBody" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Message.Timestamp" class="control-label"></label>
-                <input asp-for="Message.Timestamp" class="form-control" />
-                <span asp-validation-for="Message.Timestamp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form method="post">
+    <div class="form-group">
+        <label for="ToUserId">To</label>
+        <input type="text" class="form-control" id="ToUserId" name="Message.ToUserId" value="@Model.Message.ToUserId" required>
     </div>
-</div>
+    <div class="form-group">
+        <label for="Content">Message</label>
+        <textarea class="form-control" id="Content" name="Message.Content" rows="3" required>@Model.Message.Content</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
 
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

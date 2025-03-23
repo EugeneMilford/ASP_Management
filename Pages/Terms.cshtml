@@ -1,0 +1,49 @@
+﻿@page
+@model OfficeManagement.Pages.TermsModel
+@{
+    Layout = null;
+}
+@{
+    ViewData["Title"] = "Terms and Conditions";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+<body>
+    <div class="terms-container">
+        <h2>@ViewData["Title"]</h2>
+        <div class="terms-content">
+            <p>Welcome to our Office Management System. By using our platform, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+            <h3>1. Acceptance of Terms</h3>
+            <p>By accessing or using our services, you agree to these terms and conditions. If you do not agree, please do not use our platform.</p>
+            <h3>2. User Responsibilities</h3>
+            <p>You are responsible for maintaining the confidentiality of your account and password. You agree to notify us immediately of any unauthorized use of your account.</p>
+            <h3>3. Data Privacy</h3>
+            <p>We are committed to protecting your privacy. Your data will be handled in accordance with our <a href="/privacy">Privacy Policy</a>.</p>
+            <h3>4. Intellectual Property</h3>
+            <p>All content on this platform, including text, graphics, logos, and images, is the property of our company and is protected by intellectual property laws.</p>
+            <h3>5. Limitation of Liability</h3>
+            <p>We are not liable for any indirect, incidental, or consequential damages arising from the use of our platform.</p>
+            <img src="~/img/terms-image.jpg" alt="Terms and Conditions Image" />
+        </div>
+        <form method="post">
+            <div class="form-group">
+                <input type="checkbox" asp-for="AcceptTerms" id="AcceptTerms" required /><input type="hidden" asp-for="ReturnUrl" />
+                <label asp-for="AcceptTerms"></label>
+            </div>
+            <button type="submit" class="btn btn-outline-success">Continue</button>
+        </form>
+        @if (!ModelState.IsValid && ModelState.ContainsKey(""))
+        {
+            <div class="error-message">
+                @ModelState[""].Errors.First().ErrorMessage
+            </div>
+        }
+    </div>
+</body>
+</html>

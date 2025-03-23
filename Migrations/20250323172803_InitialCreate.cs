@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OfficeManagement.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,7 +83,10 @@ namespace OfficeManagement.Migrations
                     EventDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EventTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsersAssigned = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsTemporary = table.Column<bool>(type: "bit", nullable: false),
+                    TempUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -204,7 +207,7 @@ namespace OfficeManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "identityusers",
+                name: "bug",
                 columns: table => new
                 {
                     TicketId = table.Column<int>(type: "int", nullable: false)
@@ -216,16 +219,42 @@ namespace OfficeManagement.Migrations
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Submitter = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsTemporary = table.Column<bool>(type: "bit", nullable: false),
+                    TempUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_bug", x => x.TicketId);
+                    table.ForeignKey(
+                        name: "FK_bug_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "calendar",
+                columns: table => new
+                {
+                    CalendarId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Start = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    End = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_identityusers", x => x.TicketId);
+                    table.PrimaryKey("PK_calendar", x => x.CalendarId);
                     table.ForeignKey(
-                        name: "FK_identityusers_AspNetUsers_UserId",
+                        name: "FK_calendar_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -238,6 +267,7 @@ namespace OfficeManagement.Migrations
                     MailContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Sender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsSpam = table.Column<bool>(type: "bit", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -247,7 +277,8 @@ namespace OfficeManagement.Migrations
                         name: "FK_mail_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -256,19 +287,26 @@ namespace OfficeManagement.Migrations
                 {
                     MessageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MessageSender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MessageBody = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    FromUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ToUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SentDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_message", x => x.MessageId);
                     table.ForeignKey(
-                        name: "FK_message_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_message_AspNetUsers_FromUserId",
+                        column: x => x.FromUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_message_AspNetUsers_ToUserId",
+                        column: x => x.ToUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,7 +319,10 @@ namespace OfficeManagement.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ProjectUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsTemporary = table.Column<bool>(type: "bit", nullable: false),
+                    TempUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -304,7 +345,10 @@ namespace OfficeManagement.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RoleOfUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsTemporary = table.Column<bool>(type: "bit", nullable: false),
+                    TempUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -332,7 +376,10 @@ namespace OfficeManagement.Migrations
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateJoined = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsTemporary = table.Column<bool>(type: "bit", nullable: false),
+                    TempUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -345,7 +392,7 @@ namespace OfficeManagement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "users",
+                name: "Summary",
                 columns: table => new
                 {
                     ProfileId = table.Column<int>(type: "int", nullable: false)
@@ -365,9 +412,9 @@ namespace OfficeManagement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_users", x => x.ProfileId);
+                    table.PrimaryKey("PK_Summary", x => x.ProfileId);
                     table.ForeignKey(
-                        name: "FK_users_AspNetUsers_UserId",
+                        name: "FK_Summary_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
@@ -423,8 +470,13 @@ namespace OfficeManagement.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_identityusers_UserId",
-                table: "identityusers",
+                name: "IX_bug_UserId",
+                table: "bug",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_calendar_UserId",
+                table: "calendar",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -433,9 +485,14 @@ namespace OfficeManagement.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_message_UserId",
+                name: "IX_message_FromUserId",
                 table: "message",
-                column: "UserId");
+                column: "FromUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_message_ToUserId",
+                table: "message",
+                column: "ToUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_project_UserId",
@@ -453,8 +510,8 @@ namespace OfficeManagement.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_UserId",
-                table: "users",
+                name: "IX_Summary_UserId",
+                table: "Summary",
                 column: "UserId");
         }
 
@@ -482,7 +539,10 @@ namespace OfficeManagement.Migrations
                 name: "assignment");
 
             migrationBuilder.DropTable(
-                name: "identityusers");
+                name: "bug");
+
+            migrationBuilder.DropTable(
+                name: "calendar");
 
             migrationBuilder.DropTable(
                 name: "mail");
@@ -500,7 +560,7 @@ namespace OfficeManagement.Migrations
                 name: "staff");
 
             migrationBuilder.DropTable(
-                name: "users");
+                name: "Summary");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
