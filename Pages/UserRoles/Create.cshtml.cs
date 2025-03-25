@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
 namespace OfficeManagement.Pages.UserRoles
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public CreateModel(OfficeManagement.Data.OfficeContext context)
+        public CreateModel(
+            OfficeContext context,
+            UserManager<OfficeUser> userManager)
         {
             _context = context;
+            _userManager = userManager; // Initialize
         }
 
         public IActionResult OnGet()
@@ -25,21 +28,26 @@ namespace OfficeManagement.Pages.UserRoles
         }
 
         [BindProperty]
-        public Role Role { get; set; }
-        
+        public Role roles { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid)
                 return Page();
+
+            var currentUser = await _userManager.GetUserAsync(User); // _userManager instead of UserManager
+
+            if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin")) // _userManager instead of UserManager
+            {
+                roles.IsTemporary = true;
+                roles.TempUserId = currentUser.Id;
             }
 
-            _context.Roles.Add(Role);
+            _context.Roles.Add(roles);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }
 }
+

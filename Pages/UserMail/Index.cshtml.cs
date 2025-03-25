@@ -1,22 +1,78 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿// IndexModel.cshtml.cs
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using OfficeManagement.Areas.Identity.Data;
+using OfficeManagement.Data;
 using OfficeManagement.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace OfficeManagement.Pages.UserMail
 {
     public class IndexModel : PageModel
     {
-        public IList<Mail> Mail { get; set; } = default!;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public void OnGet()
+        public IndexModel(OfficeContext context, UserManager<OfficeUser>
+            userManager)
         {
-            // This would typically come from a database context
-            Mail = new List<Mail>
+            _context = context;
+            _userManager = userManager;
+        }
+
+        public IList<Mail>
+            InboxMails
+        { get; set; }
+
+        public async Task<IActionResult>
+            OnGetAsync()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return NotFound();
+
+            InboxMails = await _context.Mails
+            .Where(m => m.UserId == currentUser.Id)
+            .OrderByDescending(m => m.CreatedDate)
+            .ToListAsync();
+
+            return Page();
+        }
+
+        public async Task<IActionResult>
+            OnPostDeleteAsync(int id)
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return NotFound();
+
+            var mail = await _context.Mails
+            .FirstOrDefaultAsync(m => m.MailId == id && m.UserId == currentUser.Id);
+
+            if (mail != null)
             {
-                new Mail { MailId = 1, MailTopic = "Meeting Reminder", MailContent = "Don't forget our meeting tomorrow.", Sender = "John Doe", CreatedDate = DateTime.Now.AddDays(-1) },
-                new Mail { MailId = 2, MailTopic = "Project Update", MailContent = "The project is progressing well.", Sender = "Jane Smith", CreatedDate = DateTime.Now.AddDays(-2) },
-            };
+                _context.Mails.Remove(mail);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult>
+            OnPostMarkSpamAsync(int id)
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return NotFound();
+
+            var mail = await _context.Mails
+            .FirstOrDefaultAsync(m => m.MailId == id && m.UserId == currentUser.Id);
+
+            if (mail != null)
+            {
+                mail.IsSpam = true;
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
         }
     }
 }

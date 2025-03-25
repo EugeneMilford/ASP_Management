@@ -1,6 +1,5 @@
 ﻿@page
 @model OfficeManagement.Pages.UserMail.IndexModel
-
 @{
     ViewData["Title"] = "Inbox";
 }
@@ -24,7 +23,9 @@
     </section>
 
     <p>
-        <a asp-page="Create" class="btn btn-primary">Compose New Mail</a>
+        <a asp-page="Create" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Compose New Mail
+        </a>
     </p>
 
     <div class="row">
@@ -41,25 +42,14 @@
                 <div class="card-body p-0">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a asp-page="./Index" class="nav-link active">
                                 <i class="fas fa-inbox"></i> Inbox
-                                <span class="badge bg-primary float-end">12</span>
+                                <span class="badge bg-primary float-end">@Model.InboxMails.Count()</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-page="./Sent" class="nav-link">
                                 <i class="far fa-envelope"></i> Sent
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-file-alt"></i> Drafts
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-filter"></i> Junk
-                                <span class="badge bg-warning float-end">65</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -71,38 +61,6 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Labels</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-bs-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle text-danger"></i> Important
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle text-warning"></i> Promotions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle text-primary"></i> Social
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
         </div>
         <!-- /.col -->
 
@@ -122,69 +80,102 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-                    <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle">
-                            <i class="far fa-square"></i>
-                        </button>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i class="fas fa-reply"></i>
-                            </button>
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i class="fas fa-share"></i>
-                            </button>
+                    @if (!Model.InboxMails.Any())
+                    {
+                        <div class="alert alert-info m-3">
+                            Your inbox is empty.
                         </div>
-                        <!-- /.btn-group -->
-                        <button type="button" class="btn btn-default btn-sm">
-                            <i class="fas fa-sync-alt"></i>
-                        </button>
-                        <div class="float-end">
-                            1-50/200
+                    }
+                    else
+                    {
+                        <div class="mailbox-controls">
+                            <!-- Check all button -->
+                            <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                                <i class="far fa-square"></i>
+                            </button>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-chevron-left"></i>
+                                    <i class="far fa-trash-alt"></i>
                                 </button>
                                 <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-chevron-right"></i>
+                                    <i class="fas fa-reply"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fas fa-share"></i>
                                 </button>
                             </div>
                             <!-- /.btn-group -->
+                            <button type="button" class="btn btn-default btn-sm">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <div class="float-end">
+                                1-@Model.InboxMails.Count()/@Model.InboxMails.Count()
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <!-- /.btn-group -->
+                            </div>
+                            <!-- /.float-end -->
                         </div>
-                        <!-- /.float-end -->
-                    </div>
-                    <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Sender</th>
-                                    <th>Topic</th>
-                                    <th>Date</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.Mail)
-                                {
+                        <div class="table-responsive mailbox-messages">
+                            <table class="table table-hover table-striped">
+                                <thead>
                                     <tr>
-                                        <td>@item.Sender</td>
-                                        <td>@item.MailTopic</td>
-                                        <td>@item.CreatedDate.ToString("MM/dd/yyyy")</td>
-                                        <td>
-                                            <a asp-page="./Details" asp-route-id="@item.MailId">Details</a> |
-                                            <a asp-page="./Edit" asp-route-id="@item.MailId">Edit</a> |
-                                            <a asp-page="./Delete" asp-route-id="@item.MailId">Delete</a>
-                                        </td>
+                                        <th></th>
+                                        <th>Sender</th>
+                                        <th>Subject</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
-                        <!-- /.table -->
-                    </div>
-                    <!-- /.mailbox-messages -->
+                                </thead>
+                                <tbody>
+                                    @foreach (var mail in Model.InboxMails)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="icheck-primary">
+                                                    <input type="checkbox" value="" id="check@(mail.MailId)">
+                                                    <label for="check@(mail.MailId)"></label>
+                                                </div>
+                                            </td>
+                                            <td>@mail.Sender</td>
+                                            <td>
+                                                <a asp-page="./View" asp-route-id="@mail.MailId">
+                                                    @mail.MailTopic
+                                                </a>
+                                            </td>
+                                            <td>@mail.CreatedDate.ToString("MM/dd/yyyy")</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a asp-page="./Details"
+                                                       asp-route-id="@mail.MailId"
+                                                       class="btn btn-info btn-sm">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </a>
+                                                    <form method="post" class="d-inline">
+                                                        <button type="submit"
+                                                                asp-page-handler="Delete"
+                                                                asp-route-id="@mail.MailId"
+                                                                class="btn btn-danger btn-sm"
+                                                                onclick="return confirm('Are you sure you want to delete this mail?');">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <!-- /.table -->
+                        </div>
+                        <!-- /.mailbox-messages -->
+                    }
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer p-0">
@@ -209,7 +200,7 @@
                             <i class="fas fa-sync-alt"></i>
                         </button>
                         <div class="float-end">
-                            1-50/200
+                            1-@Model.InboxMails.Count()/@Model.InboxMails.Count()
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm">
                                     <i class="fas fa-chevron-left"></i>
@@ -230,3 +221,14 @@
         <!-- /.col -->
     </div>
 </div>
+
+@section Scripts {
+    @if (TempData["StatusMessage"] != null)
+    {
+        <script>
+            $(document).ready(function() {
+                toastr.success('@TempData["StatusMessage"]');
+            });
+        </script>
+    }
+}

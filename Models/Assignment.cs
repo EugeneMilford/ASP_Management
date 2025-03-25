@@ -26,3 +26,4 @@ namespace OfficeManagement.Models
         public OfficeUser User { get; set; }
     }
 }
+

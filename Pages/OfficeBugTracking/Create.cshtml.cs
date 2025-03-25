@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
 
 namespace OfficeManagement.Pages.OfficeBugTracking
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public CreateModel(OfficeManagement.Data.OfficeContext context)
+        public CreateModel(OfficeContext context, UserManager<OfficeUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
@@ -25,21 +26,27 @@ namespace OfficeManagement.Pages.OfficeBugTracking
         }
 
         [BindProperty]
-        public BugTracking BugTracking { get; set; }
-        
+        public BugTracking bugTracking { get; set; }
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid)
                 return Page();
+
+            var currentUser = await _userManager.GetUserAsync(User); // _userManager instead of UserManager
+
+            if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin")) // _userManager instead of UserManager
+            {
+                bugTracking.IsTemporary = true;
+                bugTracking.TempUserId = currentUser.Id;
             }
 
-            _context.Bugs.Add(BugTracking);
+            _context.Bugs.Add(bugTracking);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }
 }
+

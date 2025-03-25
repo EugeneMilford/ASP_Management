@@ -1,49 +1,45 @@
 ﻿@page
 @model OfficeManagement.Pages.UserMail.CreateModel
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "New Mail";
 }
 
-<h1>Create</h1>
+<div class="container">
+    <h2>New Mail</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post">
+                <div class="form-group mb-3">
+                    <label asp-for="Input.UserId"></label>
+                    <select asp-for="Input.UserId" asp-items="Model.UserList" class="form-select">
+                        <option value="">Select recipient...</option>
+                    </select>
+                    <span asp-validation-for="Input.UserId" class="text-danger"></span>
+                </div>
 
-<h4>Mail</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Mail.MailTopic" class="control-label"></label>
-                <input asp-for="Mail.MailTopic" class="form-control" />
-                <span asp-validation-for="Mail.MailTopic" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mail.MailContent" class="control-label"></label>
-                <input asp-for="Mail.MailContent" class="form-control" />
-                <span asp-validation-for="Mail.MailContent" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mail.Sender" class="control-label"></label>
-                <input asp-for="Mail.Sender" class="form-control" />
-                <span asp-validation-for="Mail.Sender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mail.CreatedDate" class="control-label"></label>
-                <input asp-for="Mail.CreatedDate" class="form-control" />
-                <span asp-validation-for="Mail.CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group mb-3">
+                    <label asp-for="Input.MailTopic"></label>
+                    <input asp-for="Input.MailTopic" class="form-control" />
+                    <span asp-validation-for="Input.MailTopic" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Input.MailContent"></label>
+                    <textarea asp-for="Input.MailContent" class="form-control" rows="10"></textarea>
+                    <span asp-validation-for="Input.MailContent" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -21,78 +21,111 @@
                 </div>
             </div>
         </div>
-     </section>
-
-     <hr />
-     <!-- Main Conetent -->
-     <section class="content">
-         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">General</h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-bs-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.Title" class="control-label"></label>
-                            <input asp-for="BugTracking.Title" class="form-control" />
-                            <span asp-validation-for="BugTracking.Title" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.Priority" class="control-label"></label>
-                            <input asp-for="BugTracking.Priority" class="form-control" />
-                            <span asp-validation-for="BugTracking.Priority" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.Project" class="control-label"></label>
-                            <input asp-for="BugTracking.Project" class="form-control" />
-                            <span asp-validation-for="BugTracking.Project" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.Description" class="control-label"></label>
-                            <input asp-for="BugTracking.Description" class="form-control" />
-                            <span asp-validation-for="BugTracking.Description" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.CreatedDate" class="control-label"></label>
-                            <input asp-for="BugTracking.CreatedDate" class="form-control" />
-                            <span asp-validation-for="BugTracking.CreatedDate" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.Status" class="control-label"></label>
-                            <input asp-for="BugTracking.Status" class="form-control" />
-                            <span asp-validation-for="BugTracking.Status" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="BugTracking.Submitter" class="control-label"></label>
-                            <input asp-for="BugTracking.Submitter" class="form-control" />
-                            <span asp-validation-for="BugTracking.Submitter" class="text-danger"></span>
-                        </div>
-                    </div>
-                <!-- /.card-body -->
-                </div>
-            <!-- /.card -->
-            </div>
-            <div class="row">
-    <div class="col-12">
-        <input type="submit" value="Add new Project" class="btn btn-success">
-        <div class="float-right">
-            <a asp-page="Index" class="btn btn-info mr-2">Back to List</a>
-            <a href="#" class="btn btn-secondary">Cancel</a>
-        </div>
-    </div>
-</div>
-        </div>
     </section>
-    </div>
-    <br />
+
+    <hr />
+    <!-- Main Content -->
+    <section class="content">
+        <form method="post">
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">General Information</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-bs-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="bugTracking.Title" class="control-label"></label>
+                                <input asp-for="bugTracking.Title" class="form-control" placeholder="Enter bug title" />
+                                <span asp-validation-for="bugTracking.Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="bugTracking.Project" class="control-label"></label>
+                                <input asp-for="bugTracking.Project" class="form-control" placeholder="Project name" />
+                                <span asp-validation-for="bugTracking.Project" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="bugTracking.Priority" class="control-label"></label>
+                                <select asp-for="bugTracking.Priority" class="form-control">
+                                    <option value="">Select priority</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="High">High</option>
+                                    <option value="Critical">Critical</option>
+                                </select>
+                                <span asp-validation-for="bugTracking.Priority" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="bugTracking.Status" class="control-label"></label>
+                                <select asp-for="bugTracking.Status" class="form-control">
+                                    <option value="">Select status</option>
+                                    <option value="New">New</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Resolved">Resolved</option>
+                                    <option value="Closed">Closed</option>
+                                </select>
+                                <span asp-validation-for="bugTracking.Status" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Details</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-bs-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="bugTracking.Description" class="control-label"></label>
+                                <textarea asp-for="bugTracking.Description" class="form-control" rows="4" placeholder="Detailed bug description"></textarea>
+                                <span asp-validation-for="bugTracking.Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="bugTracking.CreatedDate" class="control-label"></label>
+                                <input asp-for="bugTracking.CreatedDate" type="date" class="form-control" />
+                                <span asp-validation-for="bugTracking.CreatedDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="bugTracking.Submitter" class="control-label"></label>
+                                <input asp-for="bugTracking.Submitter" class="form-control" placeholder="Your name" />
+                                <span asp-validation-for="bugTracking.Submitter" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="form-group float-right">
+                        <input type="submit" value="Create Report" class="btn btn-primary mr-2" />
+                        <a asp-page="Index" class="btn btn-outline-secondary mr-2">Back to List</a>
+                        <button type="reset" class="btn btn-outline-danger">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+

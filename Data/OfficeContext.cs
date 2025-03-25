@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Models;
 
@@ -23,10 +22,14 @@ namespace OfficeManagement.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<Mail> Mails { get; set; }
         public DbSet<Profile> Summary { get; set; }
+        public DbSet<CalendarEvent> CalendarEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<BugTracking>().HasKey(b => b.TicketId);
+            modelBuilder.Entity<CalendarEvent>().HasKey(b => b.CalendarId);
 
             // Custom table mappings
             modelBuilder.Entity<Staff>().ToTable("staff");
@@ -36,6 +39,32 @@ namespace OfficeManagement.Data
             modelBuilder.Entity<Message>().ToTable("message");
             modelBuilder.Entity<Mail>().ToTable("mail");
             modelBuilder.Entity<BugTracking>().ToTable("bug");
+            modelBuilder.Entity<CalendarEvent>().ToTable("calendar");
+
+            // Relationships
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.FromUser)
+                .WithMany()
+                .HasForeignKey(m => m.FromUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.ToUser)
+                .WithMany()
+                .HasForeignKey(m => m.ToUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CalendarEvent>()
+                .HasOne(e => e.User)
+                .WithMany()
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Mail>()
+                .HasOne(m => m.User)
+                .WithMany()
+                .HasForeignKey(m => m.UserId)
+                .OnDelete(DeleteBehavior.Restrict); // Redundant line removed
         }
     }
 }

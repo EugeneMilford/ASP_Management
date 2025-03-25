@@ -1,50 +1,120 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using OfficeManagement.Areas.Identity.Data;
+using OfficeManagement.Data;
+using OfficeManagement.Models;
 using System.Threading.Tasks;
 
 namespace OfficeManagement.Pages
 {
     public class CalendarModel : PageModel
     {
-        public JsonResult OnGetGetEvents()
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
+
+        public CalendarModel(OfficeContext context, UserManager<OfficeUser> userManager)
         {
-            // Retrieve events from database
-            var events = new List<Event>
-            {
-                new Event { Id = 1, Title = "Event 1", Start = "2024-08-10", End = "2024-08-12" },
-                new Event { Id = 2, Title = "Event 2", Start = "2024-08-15", End = "2024-08-16" }
-            };
+            _context = context;
+            _userManager = userManager;
+        }
+
+        public async Task<IActionResult> OnGetEventsAsync()
+        {
+            var events = await _context.CalendarEvents
+                .Include(e => e.User)
+                .Select(e => new
+                {
+                    id = e.CalendarId,
+                    title = e.Title,
+                    description = e.Description,
+                    start = e.Start,
+                    end = e.End,
+                    userName = e.User.UserName,
+                    userId = e.UserId
+                })
+                .ToListAsync();
             return new JsonResult(events);
         }
 
-        public async Task<IActionResult> OnPostAddEvent([FromBody] Event newEvent)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> OnPostAddEventAsync([FromBody] CalendarEvent eventData)
         {
-            // Add event to the database
-            // ... (Add logic here)
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+            {
+                return Unauthorized();
+            }
+
+            eventData.UserId = currentUser.Id;
+            _context.CalendarEvents.Add(eventData);
+            await _context.SaveChangesAsync();
+
+            return new JsonResult(new { success = true, id = eventData.CalendarId });
+        }
+
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> OnPostUpdateEventAsync([FromBody] CalendarEvent eventData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+            {
+                return Unauthorized();
+            }
+
+            var existingEvent = await _context.CalendarEvents
+                .FirstOrDefaultAsync(e => e.CalendarId == eventData.CalendarId && e.UserId == currentUser.Id);
+
+            if (existingEvent == null)
+            {
+                return NotFound(new { success = false, message = "Event not found or not authorized" });
+            }
+
+            existingEvent.Title = eventData.Title;
+            existingEvent.Description = eventData.Description;
+            existingEvent.Start = eventData.Start;
+            existingEvent.End = eventData.End;
+
+            await _context.SaveChangesAsync();
             return new JsonResult(new { success = true });
         }
 
-        public async Task<IActionResult> OnPostUpdateEvent([FromBody] Event updatedEvent)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> OnPostDeleteEventAsync([FromBody] DeleteEventRequest request)
         {
-            // Update event in the database
-            // ... (Update logic here)
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+            {
+                return Unauthorized();
+            }
+
+            var existingEvent = await _context.CalendarEvents
+                .FirstOrDefaultAsync(e => e.CalendarId == request.CalendarId && e.UserId == currentUser.Id);
+
+            if (existingEvent == null)
+            {
+                return NotFound(new { success = false, message = "Event not found or not authorized" });
+            }
+
+            _context.CalendarEvents.Remove(existingEvent);
+            await _context.SaveChangesAsync();
             return new JsonResult(new { success = true });
         }
+    }
 
-        public async Task<IActionResult> OnPostDeleteEvent([FromBody] Event deleteEvent)
-        {
-            // Delete event from the database
-            // ... (Delete logic here)
-            return new JsonResult(new { success = true });
-        }
-
-        public class Event
-        {
-            public int Id { get; set; }
-            public string Title { get; set; }
-            public string Start { get; set; }
-            public string End { get; set; }
-        }
+    public class DeleteEventRequest
+    {
+        public int CalendarId { get; set; }
     }
 }

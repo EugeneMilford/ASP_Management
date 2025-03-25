@@ -1,8 +1,17 @@
 ﻿@page
 @model OfficeManagement.Pages.UserRoles.IndexModel
+@using Microsoft.AspNetCore.Identity
+@using OfficeManagement.Areas.Identity.Data
+@inject SignInManager<OfficeUser> SignInManager
+@inject UserManager<OfficeUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "User Roles";
+
+    // Get the current user or simulate DemoAdmin if the user is null
+    var currentUser = await UserManager.GetUserAsync(User) ?? new OfficeUser { UserRole = "DemoAdmin" };
+    var isAdmin = currentUser.UserRole == "Admin";
+    var isDemoAdmin = currentUser != null && await UserManager.IsInRoleAsync(currentUser, "DemoAdmin");
 }
 
 <div class="container">
@@ -13,10 +22,10 @@
                     <h1>User Roles</h1>
                 </div>
                 <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/Index">Home</a></li>
-              <li class="breadcrumb-item active">Roles</li>
-            </ol>
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Index">Home</a></li>
+                        <li class="breadcrumb-item active">Roles</li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -41,24 +50,24 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role[0].Name)
+                            @Html.DisplayNameFor(model => model.userRoles[0].Name)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role[0].Surname)
+                            @Html.DisplayNameFor(model => model.userRoles[0].Surname)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role[0].Title)
+                            @Html.DisplayNameFor(model => model.userRoles[0].Title)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role[0].EmailAddress)
+                            @Html.DisplayNameFor(model => model.userRoles[0].EmailAddress)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Role[0].RoleOfUser)
+                            @Html.DisplayNameFor(model => model.userRoles[0].RoleOfUser)
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Role)
+                    @foreach (var item in Model.userRoles)
                     {
                         <tr>
                             <td>
@@ -98,6 +107,10 @@
         </div>
     </div>
     <div>
-        <a asp-page="Create" class="btn btn-secondary">Add New Role</a>
+        @if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
+        {
+            <a asp-page="./Create" class="btn btn-primary">Add New Role</a>
+        }
     </div>
 </div>
+

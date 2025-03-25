@@ -1,8 +1,17 @@
 ﻿@page
 @model OfficeManagement.Pages.OfficeBugTracking.IndexModel
+@using Microsoft.AspNetCore.Identity
+@using OfficeManagement.Areas.Identity.Data
+@inject SignInManager<OfficeUser> SignInManager
+@inject UserManager<OfficeUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
+
+    // Get the current user or simulate DemoAdmin if the user is null
+    var currentUser = await UserManager.GetUserAsync(User) ?? new OfficeUser { UserRole = "DemoAdmin" };
+    var isAdmin = currentUser.UserRole == "Admin";
+    var isDemoAdmin = currentUser != null && await UserManager.IsInRoleAsync(currentUser, "DemoAdmin");
 }
 
 <div class="container">
@@ -65,38 +74,39 @@
                                         <th>
                                             @Html.DisplayNameFor(model => model.BugTracking[0].Submitter)
                                         </th>
-                                    </tr>          
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                @foreach (var item in Model.BugTracking) {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Title)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Priority)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Project)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Description)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CreatedDate)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Status)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Submitter)
-                                        </td>
-                                        <td>
-                                            <a asp-page="./Edit" asp-route-id="@item.TicketId">Edit</a> |
-                                            <a asp-page="./Details" asp-route-id="@item.TicketId">Details</a> |
-                                            <a asp-page="./Delete" asp-route-id="@item.TicketId">Delete</a>
-                                        </td>
-                                    </tr>
+                                    @foreach (var item in Model.BugTracking)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Priority)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Project)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Submitter)
+                                            </td>
+                                            <td>
+                                                <a asp-page="./Edit" asp-route-id="@item.TicketId">Edit</a> |
+                                                <a asp-page="./Details" asp-route-id="@item.TicketId">Details</a> |
+                                                <a asp-page="./Delete" asp-route-id="@item.TicketId">Delete</a>
+                                            </td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
@@ -106,7 +116,10 @@
             </div>
         </div>
         <div>
-            <a asp-page="Create" class="btn btn-secondary">Add New Ticket</a>
+            @if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
+            {
+                <a asp-page="./Create" class="btn btn-primary">Add New Ticket</a>
+            }
         </div>
     </section>
 </div>

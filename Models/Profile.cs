@@ -26,7 +26,7 @@ namespace OfficeManagement.Models
         [Required]
         public string Location { get; set; }
         [Required]
-        public string Hobbies {  get; set; }
+        public string Hobbies { get; set; }
         [Required]
         public string Notes { get; set; }
         [Required]
@@ -37,3 +37,4 @@ namespace OfficeManagement.Models
         public OfficeUser User { get; set; }
     }
 }
+

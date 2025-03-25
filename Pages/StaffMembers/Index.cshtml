@@ -1,12 +1,25 @@
 ﻿@page
 @model OfficeManagement.Pages.StaffMembers.IndexModel
+@using Microsoft.AspNetCore.Identity
+@using OfficeManagement.Areas.Identity.Data
+@inject SignInManager<OfficeUser> SignInManager
+@inject UserManager<OfficeUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Staff Members";
+
+    // Get the current user or simulate DemoAdmin if the user is null
+    var currentUser = await UserManager.GetUserAsync(User) ?? new OfficeUser { UserRole = "DemoAdmin" };
+    var isAdmin = currentUser.UserRole == "Admin";
+    var isDemoAdmin = currentUser != null && await UserManager.IsInRoleAsync(currentUser, "DemoAdmin");
+}
+
+@if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
+{
+    <a asp-page="./Create" class="btn btn-primary">Add New Member</a>
 }
 
 <div class="container">
-    <!-- Content Header  -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -23,13 +36,15 @@
         </div>
     </section>
 
-    <p>
-        <a asp-page="./Create">Add New Member</a>
-    </p>
+    @if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
+    {
+        <a asp-page="./Create" class="btn btn-secondary">Add New Member</a>
+    }
+
+    <br />
+    <br />
 
     <section class="content">
-      
-        <!-- Default box -->
         <div class="card card-solid">
             <div class="card-header">
                 <h3 class="card-title">Staff Members</h3>
@@ -38,7 +53,7 @@
                         <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-sm btn-secondary">
-                                <i class="fas fa-search"></i>Find
+                                <i class="fas fa-search"></i> Find
                             </button>
                         </div>
                     </div>
@@ -52,56 +67,54 @@
                         <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
                             <div class="card bg-light d-flex flex-fill">
                                 <div class="card-header text-muted border-bottom-0">
-                                    @Html.DisplayFor(model => staffMember.Title)
+                                    @staffMember.Title
                                 </div>
                                 <div class="card-body pt-0">
                                     <div class="row">
                                         <div class="col-7">
-                                            <h2 class="lead">
-                                                <b>
-                                                    @Html.DisplayFor(model => staffMember.Surname) , @Html.DisplayFor(model => staffMember.Name) 
-                                                </b>
-                                            </h2>
-                                            <p class="text-muted text-sm"><b>@Html.DisplayNameFor(model => staffMember.Gender) : </b> @Html.DisplayFor(model => staffMember.Gender)</p>
+                                            <h2 class="lead"><b>@staffMember.Surname, @staffMember.Name</b></h2>
                                             <p class="text-muted text-sm">
-                                                <b>@Html.DisplayNameFor(model => staffMember.Department)</b> : @Html.DisplayFor(model => staffMember.Department)
+                                                <b>Gender:</b> @staffMember.Gender
                                             </p>
                                             <p class="text-muted text-sm">
-                                                <b>@Html.DisplayNameFor(model => staffMember.PhoneNumber)</b> : @Html.DisplayFor(model => staffMember.PhoneNumber)
-                                            <p>
-                                            <p class="text-muted text-sm">
-                                                <b>@Html.DisplayNameFor(model => staffMember.EmailAddress)</b> : @Html.DisplayFor(model => staffMember.EmailAddress)
+                                                <b>Department:</b> @staffMember.Department
                                             </p>
                                             <p class="text-muted text-sm">
-                                                <b>@Html.DisplayNameFor(model => staffMember.DateOfBirth)</b> : @Html.DisplayFor(model => staffMember.DateOfBirth)
+                                                <b>Email:</b> @staffMember.EmailAddress
                                             </p>
-                                            <p class="text-muted text-sm">
-                                                <b>@Html.DisplayNameFor(model => staffMember.Address)</b> : @Html.DisplayFor(model => staffMember.Address)
-                                            </p>
-                                            <p class="text-muted text-sm">
-                                                <b>@Html.DisplayNameFor(model => staffMember.DateJoined)</b> : @Html.DisplayFor(model => staffMember.DateJoined)
-                                            </p>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="~/images/avatar.png" alt="User Avatar" class="img-circle img-fluid">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer">
-                                    <div class="text-right">
-                                        <a asp-page="./Edit" asp-route-id="@staffMember.ID" class="btn btn-sm btn-primary">Edit</a>
-                                        <a asp-page="./Details" asp-route-id="@staffMember.ID" class="btn btn-sm btn-secondary">Details</a>
-                                        <a asp-page="./Delete" asp-route-id="@staffMember.ID" class="btn btn-sm btn-danger">Delete</a>
+                                @if (isAdmin || isDemoAdmin)
+                                {
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a asp-page="./Edit" asp-route-id="@staffMember.ID" class="btn btn-sm btn-warning">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <a asp-page="./Details" asp-route-id="@staffMember.ID" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-info"></i> Details
+                                            </a>
+                                            <a asp-page="./Delete" asp-route-id="@staffMember.ID" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     }
-                </div>   
+                </div>
             </div>
         </div>
     </section>
 </div>
 
 
- 
-    
+
+
 
 
