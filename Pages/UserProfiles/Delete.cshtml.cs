@@ -1,58 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
+using System.Threading.Tasks;
 
 namespace OfficeManagement.Pages.UserProfiles
 {
+    [Authorize(Roles = "Admin")] // Only Admins can delete
     public class DeleteModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public DeleteModel(OfficeManagement.Data.OfficeContext context)
+        public DeleteModel(OfficeContext context, UserManager<OfficeUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [BindProperty]
-      public Profile Profile { get; set; }
+        public Profile Profile { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var profile = await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
+            Profile = await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
 
-            if (profile == null)
+            if (Profile == null)
             {
                 return NotFound();
             }
-            else 
-            {
-                Profile = profile;
-            }
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var profile = await _context.Summary.FindAsync(id);
 
-            if (profile != null)
+            Profile = await _context.Summary.FindAsync(id);
+
+            if (Profile != null)
             {
-                Profile = profile;
                 _context.Summary.Remove(Profile);
                 await _context.SaveChangesAsync();
             }

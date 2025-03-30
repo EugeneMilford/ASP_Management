@@ -1,46 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
+using System.Threading.Tasks;
 
 namespace OfficeManagement.Pages.UserProfiles
 {
+    [Authorize]
     public class EditModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public EditModel(OfficeManagement.Data.OfficeContext context)
+        public EditModel(OfficeContext context, UserManager<OfficeUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [BindProperty]
-        public Profile Profile { get; set; } = default!;
+        public Profile Profile { get; set; }
+
+        public bool CanEdit { get; private set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var profile =  await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
-            if (profile == null)
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+            var isDemoAdmin = await _userManager.IsInRoleAsync(currentUser, "DemoAdmin");
+
+            Profile = await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
+
+            if (Profile == null)
             {
                 return NotFound();
             }
-            Profile = profile;
+
+            // Set CanEdit flag
+            CanEdit = isAdmin || isDemoAdmin || Profile.UserId == currentUser.Id;
+
+            if (!CanEdit)
+            {
+                return Page(); // Show the access denied message in the view
+            }
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -48,7 +63,36 @@ namespace OfficeManagement.Pages.UserProfiles
                 return Page();
             }
 
-            _context.Attach(Profile).State = EntityState.Modified;
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+            var isDemoAdmin = await _userManager.IsInRoleAsync(currentUser, "DemoAdmin");
+
+            var existingProfile = await _context.Summary.FindAsync(Profile.ProfileId);
+
+            if (existingProfile == null)
+            {
+                return NotFound();
+            }
+
+            // Verify edit permission again on post
+            CanEdit = isAdmin || isDemoAdmin || existingProfile.UserId == currentUser.Id;
+            if (!CanEdit)
+            {
+                return Forbid();
+            }
+
+            // Update editable fields
+            existingProfile.ProfileName = Profile.ProfileName;
+            existingProfile.ProfileSurname = Profile.ProfileSurname;
+            existingProfile.ProfileDescription = Profile.ProfileDescription;
+            existingProfile.Title = Profile.Title;
+            existingProfile.Experience = Profile.Experience;
+            existingProfile.Education = Profile.Education;
+            existingProfile.Skills = Profile.Skills;
+            existingProfile.Location = Profile.Location;
+            existingProfile.Hobbies = Profile.Hobbies;
+            existingProfile.Notes = Profile.Notes;
+            existingProfile.DateJoined = Profile.DateJoined;
 
             try
             {
@@ -71,7 +115,7 @@ namespace OfficeManagement.Pages.UserProfiles
 
         private bool ProfileExists(int id)
         {
-          return _context.Summary.Any(e => e.ProfileId == id);
+            return _context.Summary.Any(e => e.ProfileId == id);
         }
     }
 }

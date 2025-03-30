@@ -1,0 +1,272 @@
+﻿@page
+@model OfficeManagement.Pages.UserMail.SentModel
+@{
+    ViewData["Title"] = "Sent Mail";
+}
+
+<div class="container">
+    <!-- Content Header -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Mail</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Index">Home</a></li>
+                        <li class="breadcrumb-item"><a asp-page="./Index">Mail</a></li>
+                        <li class="breadcrumb-item active">Sent</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <p>
+        <a asp-page="Create" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Compose New Mail
+        </a>
+    </p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Folders</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-bs-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a asp-page="./Index" class="nav-link">
+                                <i class="fas fa-inbox"></i> Inbox
+                                <span class="badge bg-primary float-end">@Model.InboxCount</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-page="./Sent" class="nav-link active">
+                                <i class="far fa-envelope"></i> Sent
+                                <span class="badge bg-success float-end">@Model.SentMails.Count()</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-file-alt"></i> Drafts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-filter"></i> Junk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-trash-alt"></i> Trash
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Labels</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-bs-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle text-danger"></i> Important
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle text-warning"></i> Promotions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle text-primary"></i> Social
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-9">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Sent Mail</h3>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Search Mail">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-search"></i> Search Mail
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    @if (!Model.SentMails.Any())
+                    {
+                        <div class="alert alert-info m-3">
+                            You haven't sent any mail yet.
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mailbox-controls">
+                            <!-- Check all button -->
+                            <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                                <i class="far fa-square"></i>
+                            </button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                            <!-- /.btn-group -->
+                            <button type="button" class="btn btn-default btn-sm">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <div class="float-end">
+                                1-@Model.SentMails.Count()/@Model.SentMails.Count()
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <!-- /.btn-group -->
+                            </div>
+                            <!-- /.float-end -->
+                        </div>
+                        <div class="table-responsive mailbox-messages">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Recipient</th>
+                                        <th>Subject</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var mail in Model.SentMails)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="icheck-primary">
+                                                    <input type="checkbox" value="" id="check@(mail.MailId)">
+                                                    <label for="check@(mail.MailId)"></label>
+                                                </div>
+                                            </td>
+                                            <td>@mail.Sender</td>
+                                            <td>
+                                                <a asp-page="./View" asp-route-id="@mail.MailId">
+                                                    @mail.MailTopic
+                                                </a>
+                                            </td>
+                                            <td>@mail.CreatedDate.ToString("MM/dd/yyyy")</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a asp-page="./Details"
+                                                       asp-route-id="@mail.MailId"
+                                                       class="btn btn-info btn-sm">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </a>
+                                                    <form method="post" class="d-inline">
+                                                        <button type="submit"
+                                                                asp-page-handler="Delete"
+                                                                asp-route-id="@mail.MailId"
+                                                                class="btn btn-danger btn-sm"
+                                                                onclick="return confirm('Are you sure you want to delete this mail?');">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <!-- /.table -->
+                        </div>
+                        <!-- /.mailbox-messages -->
+                    }
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer p-0">
+                    <div class="mailbox-controls">
+                        <!-- Check all button -->
+                        <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                            <i class="far fa-square"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                        <!-- /.btn-group -->
+                        <button type="button" class="btn btn-default btn-sm">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <div class="float-end">
+                            1-@Model.SentMails.Count()/@Model.SentMails.Count()
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <!-- /.btn-group -->
+                        </div>
+                        <!-- /.float-end -->
+                    </div>
+                </div>
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div>
+
+@section Scripts {
+    @if (TempData["StatusMessage"] != null)
+    {
+        <script>
+            $(document).ready(function() {
+                toastr.success('@TempData["StatusMessage"]');
+            });
+        </script>
+    }
+}

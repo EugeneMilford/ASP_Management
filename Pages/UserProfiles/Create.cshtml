@@ -1,64 +1,133 @@
 ﻿@page
 @model OfficeManagement.Pages.UserProfiles.CreateModel
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Profile";
 }
 
-<h1>Create</h1>
-
-<h4>Profile</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Profile.ProfileName" class="control-label"></label>
-                <input asp-for="Profile.ProfileName" class="form-control" />
-                <span asp-validation-for="Profile.ProfileName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.ProfileDescription" class="control-label"></label>
-                <input asp-for="Profile.ProfileDescription" class="form-control" />
-                <span asp-validation-for="Profile.ProfileDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Experience" class="control-label"></label>
-                <input asp-for="Profile.Experience" class="form-control" />
-                <span asp-validation-for="Profile.Experience" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Education" class="control-label"></label>
-                <input asp-for="Profile.Education" class="form-control" />
-                <span asp-validation-for="Profile.Education" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Location" class="control-label"></label>
-                <input asp-for="Profile.Location" class="form-control" />
-                <span asp-validation-for="Profile.Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Notes" class="control-label"></label>
-                <input asp-for="Profile.Notes" class="form-control" />
-                <span asp-validation-for="Profile.Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.DateJoined" class="control-label"></label>
-                <input asp-for="Profile.DateJoined" class="form-control" />
-                <span asp-validation-for="Profile.DateJoined" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>Create New Profile</h1>
+            <hr />
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="row">
+            <!-- Left Column - Personal Information -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Personal Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="Profile.ProfileName" class="font-weight-bold">First Name</label>
+                            <input asp-for="Profile.ProfileName" class="form-control" placeholder="Enter first name" />
+                            <span asp-validation-for="Profile.ProfileName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.ProfileSurname" class="font-weight-bold">Last Name</label>
+                            <input asp-for="Profile.ProfileSurname" class="form-control" placeholder="Enter last name" />
+                            <span asp-validation-for="Profile.ProfileSurname" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.Title" class="font-weight-bold">Job Title</label>
+                            <input asp-for="Profile.Title" class="form-control" placeholder="Enter job title" />
+                            <span asp-validation-for="Profile.Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.Location" class="font-weight-bold">Location</label>
+                            <input asp-for="Profile.Location" class="form-control" placeholder="Enter location" />
+                            <span asp-validation-for="Profile.Location" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Professional Details -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Professional Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="Profile.ProfileDescription" class="font-weight-bold">Profile Summary</label>
+                            <textarea asp-for="Profile.ProfileDescription" class="form-control" rows="3"
+                                      placeholder="Brief professional summary"></textarea>
+                            <span asp-validation-for="Profile.ProfileDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.Experience" class="font-weight-bold">Work Experience</label>
+                            <textarea asp-for="Profile.Experience" class="form-control" rows="3"
+                                      placeholder="List your work experience"></textarea>
+                            <span asp-validation-for="Profile.Experience" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.Education" class="font-weight-bold">Education</label>
+                            <input asp-for="Profile.Education" class="form-control" placeholder="Your education background" />
+                            <span asp-validation-for="Profile.Education" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.Skills" class="font-weight-bold">Skills</label>
+                            <input asp-for="Profile.Skills" class="form-control" placeholder="List your key skills" />
+                            <span asp-validation-for="Profile.Skills" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information (Full Width) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Additional Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="Profile.Hobbies" class="font-weight-bold">Hobbies & Interests</label>
+                            <input asp-for="Profile.Hobbies" class="form-control" placeholder="Your hobbies and interests" />
+                            <span asp-validation-for="Profile.Hobbies" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Profile.Notes" class="font-weight-bold">Additional Notes</label>
+                            <textarea asp-for="Profile.Notes" class="form-control" rows="3"
+                                      placeholder="Any additional information"></textarea>
+                            <span asp-validation-for="Profile.Notes" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg mr-2">
+                    <i class="fas fa-save"></i> Create Profile
+                </button>
+                <a asp-page="Index" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-arrow-left"></i> Cancel
+                </a>
+            </div>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

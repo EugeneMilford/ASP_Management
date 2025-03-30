@@ -1,42 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
+using System.Threading.Tasks;
 
 namespace OfficeManagement.Pages.UserProfiles
 {
+    [Authorize]
     public class DetailsModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public DetailsModel(OfficeManagement.Data.OfficeContext context)
+        public DetailsModel(OfficeContext context, UserManager<OfficeUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-      public Profile Profile { get; set; }
+        public Profile Profile { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Summary == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var profile = await _context.Summary.FirstOrDefaultAsync(m => m.ProfileId == id);
-            if (profile == null)
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+            var isDemoAdmin = await _userManager.IsInRoleAsync(currentUser, "DemoAdmin");
+
+            Profile = await _context.Summary
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(m => m.ProfileId == id);
+
+            if (Profile == null)
             {
                 return NotFound();
             }
-            else 
+
+            // Only allow if user is admin/demo-admin OR owns the profile
+            if (!isAdmin && !isDemoAdmin && Profile.UserId != currentUser.Id)
             {
-                Profile = profile;
+                return Forbid();
             }
+
             return Page();
         }
     }

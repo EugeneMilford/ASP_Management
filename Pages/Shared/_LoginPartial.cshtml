@@ -4,10 +4,12 @@
 @inject UserManager<OfficeUser> UserManager
 
 <div class="d-flex justify-content-center w-100 mt-4">
-    <!-- Changed here -->
     @if (SignInManager.IsSignedIn(User))
     {
-        <span class="text-primary fw-bold me-3">Hello, @UserManager.GetUserName(User)!</span>
+        var user = await UserManager.GetUserAsync(User);
+        <span class="text-primary fw-bold me-3">
+            Hello, @(user?.FirstName ?? user?.Email)!
+        </span>
         <form id="logoutForm" class="d-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
             <button id="logout" type="submit" class="btn btn-outline-danger me-2">Logout</button>
         </form>
@@ -18,5 +20,4 @@
         <a class="btn btn-outline-secondary me-2 mb-2" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
     }
 </div>
-
 

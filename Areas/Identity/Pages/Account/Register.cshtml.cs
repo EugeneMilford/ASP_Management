@@ -141,44 +141,37 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
             // Set default returnUrl to "/Index" instead of "/"
             returnUrl ??= Url.Content("~/Index");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
                 // Set user properties
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
                 user.Address = Input.Address;
                 user.UserRole = Input.UserRole;
-
                 // Set username and email
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
                 // Create user
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
                     // Optional: Generate and confirm email token if needed
-                    // Uncomment if email confirmation is necessary
                     var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     await _userManager.ConfirmEmailAsync(user, emailConfirmationToken);
 
-                    // Redirecting the user directly to "/Index"
-                    return LocalRedirect("~/Terms"); // LocalRedirect ensures safe redirection
-                }
+                    //sign in the user after registration
+                    await _signInManager.SignInAsync(user, isPersistent: false);
 
+                    // Redirecting the user to Terms page
+                    return LocalRedirect("~/Terms");
+                }
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
-            // If we got this far, something failed, redisplay form
             return Page();
         }
 

@@ -1,40 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeManagement.Areas.Identity.Data;
 using OfficeManagement.Data;
 using OfficeManagement.Models;
+using System.Threading.Tasks;
 
 namespace OfficeManagement.Pages.UserProfiles
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
+        private readonly UserManager<OfficeUser> _userManager;
 
-        public CreateModel(OfficeManagement.Data.OfficeContext context)
+        public CreateModel(OfficeContext context, UserManager<OfficeUser> userManager)
         {
             _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-            return Page();
+            _userManager = userManager;
         }
 
         [BindProperty]
         public Profile Profile { get; set; }
-        
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+        [BindProperty(SupportsGet = true)]
+        public bool MyProfile { get; set; } = false;
+
+        public IActionResult OnGet()
+        {
+            if (MyProfile)
+            {
+                Profile = new Profile();
+            }
+            return Page();
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            Profile.UserId = currentUser.Id;
 
             _context.Summary.Add(Profile);
             await _context.SaveChangesAsync();

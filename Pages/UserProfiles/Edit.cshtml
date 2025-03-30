@@ -1,65 +1,147 @@
-﻿@page
+﻿@page "{id:int}"
 @model OfficeManagement.Pages.UserProfiles.EditModel
-
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Profile";
 }
 
-<h1>Edit</h1>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h1>Edit Profile</h1>
+            <hr />
+        </div>
+    </div>
 
-<h4>Profile</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    @if (!Model.CanEdit)
+    {
+        <div class="alert alert-warning">
+            <h4><i class="fas fa-exclamation-triangle"></i> Access Denied</h4>
+            <p>You don't have permission to edit this profile.</p>
+            <a asp-page="./Index" class="btn btn-secondary">Back to Profiles</a>
+        </div>
+    }
+    else
+    {
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Profile.ProfileId" />
-            <div class="form-group">
-                <label asp-for="Profile.ProfileName" class="control-label"></label>
-                <input asp-for="Profile.ProfileName" class="form-control" />
-                <span asp-validation-for="Profile.ProfileName" class="text-danger"></span>
+            <input type="hidden" asp-for="Profile.UserId" />
+
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title">Basic Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Profile.ProfileName" class="control-label"></label>
+                                <input asp-for="Profile.ProfileName" class="form-control" />
+                                <span asp-validation-for="Profile.ProfileName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.ProfileSurname" class="control-label"></label>
+                                <input asp-for="Profile.ProfileSurname" class="form-control" />
+                                <span asp-validation-for="Profile.ProfileSurname" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.Title" class="control-label"></label>
+                                <input asp-for="Profile.Title" class="form-control" />
+                                <span asp-validation-for="Profile.Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.ProfileDescription" class="control-label"></label>
+                                <textarea asp-for="Profile.ProfileDescription" class="form-control" rows="3"></textarea>
+                                <span asp-validation-for="Profile.ProfileDescription" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title">Background Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Profile.Experience" class="control-label"></label>
+                                <textarea asp-for="Profile.Experience" class="form-control" rows="2"></textarea>
+                                <span asp-validation-for="Profile.Experience" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.Education" class="control-label"></label>
+                                <textarea asp-for="Profile.Education" class="form-control" rows="2"></textarea>
+                                <span asp-validation-for="Profile.Education" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.Skills" class="control-label"></label>
+                                <textarea asp-for="Profile.Skills" class="form-control" rows="2"></textarea>
+                                <span asp-validation-for="Profile.Skills" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Profile.ProfileDescription" class="control-label"></label>
-                <input asp-for="Profile.ProfileDescription" class="form-control" />
-                <span asp-validation-for="Profile.ProfileDescription" class="text-danger"></span>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title">Personal Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Profile.Location" class="control-label"></label>
+                                <input asp-for="Profile.Location" class="form-control" />
+                                <span asp-validation-for="Profile.Location" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.Hobbies" class="control-label"></label>
+                                <textarea asp-for="Profile.Hobbies" class="form-control" rows="2"></textarea>
+                                <span asp-validation-for="Profile.Hobbies" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title">Additional Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Profile.Notes" class="control-label"></label>
+                                <textarea asp-for="Profile.Notes" class="form-control" rows="4"></textarea>
+                                <span asp-validation-for="Profile.Notes" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Profile.DateJoined" class="control-label"></label>
+                                <input asp-for="Profile.DateJoined" type="date" class="form-control" />
+                                <span asp-validation-for="Profile.DateJoined" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Profile.Experience" class="control-label"></label>
-                <input asp-for="Profile.Experience" class="form-control" />
-                <span asp-validation-for="Profile.Experience" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Education" class="control-label"></label>
-                <input asp-for="Profile.Education" class="form-control" />
-                <span asp-validation-for="Profile.Education" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Location" class="control-label"></label>
-                <input asp-for="Profile.Location" class="form-control" />
-                <span asp-validation-for="Profile.Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.Notes" class="control-label"></label>
-                <input asp-for="Profile.Notes" class="form-control" />
-                <span asp-validation-for="Profile.Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Profile.DateJoined" class="control-label"></label>
-                <input asp-for="Profile.DateJoined" class="form-control" />
-                <span asp-validation-for="Profile.DateJoined" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="submit" value="Save Changes" class="btn btn-primary" />
+                        <a asp-page="./Index" class="btn btn-secondary ml-2">Cancel</a>
+                    </div>
+                </div>
             </div>
         </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
+    }
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

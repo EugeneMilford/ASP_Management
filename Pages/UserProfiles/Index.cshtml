@@ -1,142 +1,220 @@
 ﻿@page
 @model OfficeManagement.Pages.UserProfiles.IndexModel
-
+@using Microsoft.AspNetCore.Identity
+@using OfficeManagement.Areas.Identity.Data
+@inject SignInManager<OfficeUser> SignInManager
+@inject UserManager<OfficeUser> UserManager
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Manage Profiles";
+    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUserProfile = Model.Profiles?.FirstOrDefault(p => p.UserId == currentUser.Id);
 }
 
-<div class="container">
-    <!-- Content Header -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Profile</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">User Profiles</h3>
+                    @if (Model.IsAdmin || Model.IsDemoAdmin)
+                    {
+                        <div class="card-tools">
+                            @if (currentUserProfile == null)
+                            {
+                                <a asp-page="Create" asp-route-myProfile="true" class="btn btn-success btn-sm mr-2">
+                                    <i class="fas fa-user-plus"></i> Add My Profile
+                                </a>
+                            }
+                            <a asp-page="Create" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i> Create New Profile
+                            </a>
+                        </div>
+                    }
                 </div>
-                <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/Index">Home</a></li>
-              <li class="breadcrumb-item active">User Profile</li>
-            </ol>
+
+                <div class="card-body">
+                    @if (Model.IsAdmin || Model.IsDemoAdmin)
+                    {
+                        <div class="row">
+                            <!-- Admin Profile Card (Left Side) -->
+                            <div class="col-md-4">
+                                @if (currentUserProfile != null)
+                                {
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-body box-profile">
+                                            <h3 class="profile-username text-center">@currentUserProfile.ProfileName @currentUserProfile.ProfileSurname</h3>
+                                            <p class="text-muted text-center">@currentUserProfile.Title</p>
+                                            <ul class="list-group list-group-unbordered mb-3">
+                                                <li class="list-group-item">
+                                                    <b>Joined</b>
+                                                    <span class="float-right">@currentUserProfile.DateJoined.ToString("d")</span>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Location</b>
+                                                    <span class="float-right">@currentUserProfile.Location</span>
+                                                </li>
+                                            </ul>
+                                            <a asp-page="./Edit" asp-route-id="@currentUserProfile.ProfileId" class="btn btn-primary btn-block">
+                                                <i class="fas fa-edit"></i> Edit My Profile
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-info">
+                                        <p>You haven't created your profile yet.</p>
+                                        <a asp-page="Create" asp-route-myProfile="true" class="btn btn-success">
+                                            <i class="fas fa-user-plus"></i> Add My Profile
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+
+                            <!-- User Profiles Table (Right Side) -->
+                            <div class="col-md-8">
+                                <table id="profilesTable" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Surname</th>
+                                            <th>Title</th>
+                                            <th>Date Joined</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var profile in Model.Profiles)
+                                        {
+                                            <tr>
+                                                <td>@profile.ProfileName</td>
+                                                <td>@profile.ProfileSurname</td>
+                                                <td>@profile.Title</td>
+                                                <td>@profile.DateJoined.ToString("dd/MM/yyyy")</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <a asp-page="./Details" asp-route-id="@profile.ProfileId" class="btn btn-info btn-sm">
+                                                            <i class="fas fa-eye"></i> View
+                                                        </a>
+                                                        <a asp-page="./Edit" asp-route-id="@profile.ProfileId" class="btn btn-primary btn-sm">
+                                                            <i class="fas fa-edit"></i> Edit
+                                                        </a>
+                                                        @if (Model.IsAdmin)
+                                                        {
+                                                            <a asp-page="./Delete" asp-route-id="@profile.ProfileId" class="btn btn-danger btn-sm">
+                                                                <i class="fas fa-trash"></i> Delete
+                                                            </a>
+                                                        }
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <!-- Regular User View -->
+                        <div class="row">
+                            <div class="col-md-3">
+                                @if (currentUserProfile != null)
+                                {
+                                    <div class="card card-primary card-outline">
+                                        <div class="card-body box-profile">
+                                            <h3 class="profile-username text-center">@currentUserProfile.ProfileName @currentUserProfile.ProfileSurname</h3>
+                                            <p class="text-muted text-center">@currentUserProfile.Title</p>
+                                            <a asp-page="./Edit" asp-route-id="@currentUserProfile.ProfileId" class="btn btn-primary btn-block">Edit Profile</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="card card-primary">
+                                        <div class="card-header">
+                                            <h3 class="card-title">About Me</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <strong><i class="fas fa-calendar-alt mr-1"></i> Date Joined</strong>
+                                            <p class="text-muted">@currentUserProfile.DateJoined.ToString("d")</p>
+                                            <hr>
+                                            <strong><i class="fas fa-graduation-cap mr-1"></i> Education</strong>
+                                            <p class="text-muted">@currentUserProfile.Education</p>
+                                            <hr>
+                                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                                            <p class="text-muted">@currentUserProfile.Location</p>
+                                            <hr>
+                                            <strong><i class="fas fa-code mr-1"></i> Skills</strong>
+                                            <p class="text-muted">@currentUserProfile.Skills</p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-info">
+                                        <p>No profile found.</p>
+                                        <a asp-page="Create" class="btn btn-primary">Create Profile</a>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="col-md-9">
+                                @if (currentUserProfile != null)
+                                {
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>About</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>@currentUserProfile.ProfileDescription</p>
+                                        </div>
+
+                                        <div class="card-header">
+                                            <h4>Experience</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>@currentUserProfile.Experience</p>
+                                        </div>
+
+                                        <div class="card-header">
+                                            <h4>Hobbies</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>@currentUserProfile.Hobbies</p>
+                                        </div>
+
+                                        <div class="card-header">
+                                            <h4>Notes</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>@currentUserProfile.Notes</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
-     </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card card-primary card-outline">
-                        <div class="card-body box-profile">
-                            <h3 class="profile-username text-center">@*@Html.DisplayFor(model => model.Profile[0].ProfileName)*@</h3>
-                            <p class="text-muted text-center">@*@Html.DisplayFor(model => model.Profile[0].ProfileTitle)*@</p>
-                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-                        </div>    
-                    </div>
-            
-                    <!-- About -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">About Me</h3>
-                        </div>
-              
-                        <div class="card-body">
-                            <strong><i class="fas fa-map-marker-alt mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].DateJoined)</strong>
-                            <p class="text-muted">
-                                @*@Html.DisplayFor(model => model.Profile.DateJoined)*@
-                            </p>
-
-                            <hr>
-
-                            <strong><i class="fas fa-book mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].Education)</strong>
-                            <p class="text-muted">
-                                @*@Html.DisplayFor(model => model.Profile[0].Education)*@
-                            </p>
-
-                            <hr>
-
-                            <strong><i class="fas fa-map-marker-alt mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].Location)</strong>
-                            <p class="text-muted">
-                                @*@Html.DisplayFor(model => model.Profile[0].Location)*@
-                            </p>
-
-                            <hr>
-
-                            <strong><i class="fas fa-pencil-alt mr-1"></i>@Html.DisplayNameFor(model => model.Profile[0].Skills)</strong>
-                            <p class="text-muted">
-                                <span class="tag tag-success">Coding</span>
-                            </p>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
-                    <div class="card">
-                        <div class="card-header p-2">
-                            <h4 class="my-3">About</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="active tab-pane" id="activity">
-                                    <div class="post">
-                                        <p>
-                                            @*@Html.DisplayFor(model => model.Profile[0].About)*@
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-header p-2">
-                            <h4 class="my-3">@Html.DisplayNameFor(model => model.Profile[0].Experience)</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="active tab-pane" id="activity">
-                                    <div class="post">
-                                        <p>
-                                            @*@Html.DisplayFor(model => model.Profile[0].Experience)*@
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-header p-2">
-                            <h4 class="my-3">@Html.DisplayNameFor(model => model.Profile[0].Hobbies)</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="active tab-pane" id="activity">
-                                    <div class="post">
-                                        <p>
-                                            @*@Html.DisplayFor(model => model.Profile[0].Hobbies)*@
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-header p-2">
-                            <h4 class="my-3">@Html.DisplayNameFor(model => model.Profile[0].Notes)</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="active tab-pane" id="activity">
-                                    <div class="post">
-                                        <p>
-                                            @*@Html.DisplayFor(model => model.Profile[0].Notes)*@
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 </div>
 
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(function() {
+            $('#profilesTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+}
