@@ -28,20 +28,33 @@ namespace OfficeManagement.Pages.UserRoles
         }
 
         [BindProperty]
-        public Role roles { get; set; }
+        public Role roles { get; set; }    
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
                 return Page();
 
-            var currentUser = await _userManager.GetUserAsync(User); // _userManager instead of UserManager
+            var currentUser = await _userManager.GetUserAsync(User);
 
-            if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin")) // _userManager instead of UserManager
+            if (currentUser != null)
             {
-                roles.IsTemporary = true;
-                roles.TempUserId = currentUser.Id;
+                if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin"))
+                {
+                    // DemoAdmin-created roles are temporary
+                    roles.IsTemporary = true;
+                    roles.TempUserId = currentUser.Id;
+                }
+                else
+                {
+                    // Record the creator for permanent roles
+                    roles.UserId = currentUser.Id;
+                }
+            }
+            else
+            {
+                // If there's no authenticated user, treat appropriately (optional)
+                // e.g. mark as temporary or set no UserId 
             }
 
             _context.Roles.Add(roles);

@@ -39,7 +39,7 @@ RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
 #
 # The example below uses an aspnet alpine image as the foundation for running the app.
 # It will also use whatever happens to be the most recent version of that tag when you
-# build your Dockerfile. If reproducability is important, consider using a more specific
+# build your Dockerfile. If reproducibility is important, consider using a more specific
 # version (e.g., aspnet:7.0.10-alpine-3.18),
 # or SHA (e.g., mcr.microsoft.com/dotnet/aspnet@sha256:f3d99f54d504a21d38e4cc2f13ff47d67235efeeb85c109d3d1ff1808b38d034).
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS final

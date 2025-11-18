@@ -64,7 +64,7 @@ namespace OfficeManagement.Data
                 .HasOne(m => m.User)
                 .WithMany()
                 .HasForeignKey(m => m.UserId)
-                .OnDelete(DeleteBehavior.Restrict); // Redundant line removed
+                .OnDelete(DeleteBehavior.Restrict); 
         }
     }
 }

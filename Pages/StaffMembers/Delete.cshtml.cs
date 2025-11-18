@@ -15,7 +15,7 @@ namespace OfficeManagement.Pages.StaffMembers
         }
 
         [BindProperty]
-      public Staff Staff { get; set; }
+        public Staff Staff { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,7 +30,7 @@ namespace OfficeManagement.Pages.StaffMembers
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Staff = staff;
             }
@@ -43,14 +43,18 @@ namespace OfficeManagement.Pages.StaffMembers
             {
                 return NotFound();
             }
+
             var staff = await _context.Personnel.FindAsync(id);
 
-            if (staff != null)
+            if (staff == null) // Staff member not found
             {
-                Staff = staff;
-                _context.Personnel.Remove(Staff);
-                await _context.SaveChangesAsync();
+                return NotFound(); // Return NotFound instead of continuing
             }
+
+            // Only execute if staff member exists
+            Staff = staff;
+            _context.Personnel.Remove(Staff);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

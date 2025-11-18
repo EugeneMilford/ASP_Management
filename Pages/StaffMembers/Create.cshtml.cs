@@ -19,7 +19,7 @@ namespace OfficeManagement.Pages.StaffMembers
             UserManager<OfficeUser> userManager)
         {
             _context = context;
-            _userManager = userManager; // Initialize
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
@@ -30,22 +30,30 @@ namespace OfficeManagement.Pages.StaffMembers
         [BindProperty]
         public Staff Staff { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
                 return Page();
 
-            var currentUser = await _userManager.GetUserAsync(User); 
+            var currentUser = await _userManager.GetUserAsync(User);
 
-            if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin")) 
+            if (currentUser != null)
             {
-                Staff.IsTemporary = true;
-                Staff.TempUserId = currentUser.Id;
+                if (await _userManager.IsInRoleAsync(currentUser, "DemoAdmin"))
+                {
+                    Staff.IsTemporary = true;
+                    Staff.TempUserId = currentUser.Id;
+                }
+                else
+                {
+                    // Set UserId for regular users (Admin, etc.)
+                    Staff.UserId = currentUser.Id; 
+                }
             }
 
             _context.Personnel.Add(Staff);
             await _context.SaveChangesAsync();
+
             return RedirectToPage("./Index");
         }
     }

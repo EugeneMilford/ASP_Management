@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -12,15 +9,15 @@ namespace OfficeManagement.Pages.UserMail
 {
     public class DeleteModel : PageModel
     {
-        private readonly OfficeManagement.Data.OfficeContext _context;
+        private readonly OfficeContext _context;
 
-        public DeleteModel(OfficeManagement.Data.OfficeContext context)
+        public DeleteModel(OfficeContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-      public Mail Mail { get; set; }
+        public Mail Mail { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,10 +32,8 @@ namespace OfficeManagement.Pages.UserMail
             {
                 return NotFound();
             }
-            else 
-            {
-                Mail = mail;
-            }
+
+            Mail = mail;
             return Page();
         }
 
@@ -48,14 +43,17 @@ namespace OfficeManagement.Pages.UserMail
             {
                 return NotFound();
             }
+
             var mail = await _context.Mails.FindAsync(id);
 
-            if (mail != null)
+            if (mail == null)
             {
-                Mail = mail;
-                _context.Mails.Remove(Mail);
-                await _context.SaveChangesAsync();
+                // Explicitly return NotFound when the entity doesn't exist.
+                return NotFound();
             }
+
+            _context.Mails.Remove(mail);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
