@@ -90,6 +90,10 @@
               "target": "Package",
               "version": "[6.0.17, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -105,6 +109,10 @@
             "jQuery.Fullcalendar": {
               "target": "Package",
               "version": "[3.9.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [
