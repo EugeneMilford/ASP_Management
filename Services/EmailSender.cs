@@ -9,7 +9,7 @@ namespace OfficeManagement.Services
         {
             // Placeholder email-sending logic
             Console.WriteLine($"Sending email to {email} with subject {subject}");
-            return Task.CompletedTask; // Replace with actual email logic if needed
+            return Task.CompletedTask; 
         }
     }
 }

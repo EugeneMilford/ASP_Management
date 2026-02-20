@@ -1,0 +1,389 @@
+﻿@page
+@model OfficeManagement.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="container py-5">
+    <!-- Hero Section -->
+    <section class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary mb-3">
+            <i class="fas fa-building me-3"></i>Office Management System
+        </h1>
+        <p class="lead text-muted">
+            A comprehensive enterprise solution designed to streamline workplace operations and enhance team collaboration
+        </p>
+        <hr class="my-4" />
+    </section>
+
+    <!-- Overview Section -->
+    <section class="mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="h3 fw-bold mb-4">
+                    <i class="fas fa-info-circle text-primary me-2"></i>What is This System?
+                </h2>
+                <p class="lead">
+                    The Office Management System is a full-featured web application built to centralize and simplify
+                    office operations. From managing staff and tracking bugs to coordinating projects and scheduling events,
+                    this platform provides everything your organization needs to operate efficiently.
+                </p>
+                <p>
+                    Built with <strong>ASP.NET Core 6.0</strong>, this system leverages modern web technologies including
+                    Entity Framework Core, SQL Server, Bootstrap 5, and ASP.NET Identity to deliver a secure, scalable,
+                    and user-friendly experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="mb-5">
+        <h2 class="h3 fw-bold text-center mb-4">
+            <i class="fas fa-star text-warning me-2"></i>Key Features
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Staff Management</h5>
+                        <p class="card-text">Comprehensive staff directory with role assignments and profile management</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-envelope fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Internal Mail System</h5>
+                        <p class="card-text">Send and receive internal emails with inbox/sent folders and spam filtering</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bug fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title">Bug Tracking</h5>
+                        <p class="card-text">Track issues, assign priorities, and monitor resolution progress</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-briefcase fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Project Management</h5>
+                        <p class="card-text">Create, track, and manage office projects with team collaboration</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tasks fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Task Assignments</h5>
+                        <p class="card-text">Assign tasks to team members with start/end dates and progress tracking</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-calendar-alt fa-3x text-purple mb-3"></i>
+                        <h5 class="card-title">Event Calendar</h5>
+                        <p class="card-text">Visual calendar with FullCalendar integration for scheduling and reminders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Roles Section -->
+    <section class="mb-5">
+        <h2 class="h3 fw-bold text-center mb-4">
+            <i class="fas fa-user-shield text-primary me-2"></i>User Roles & Permissions
+        </h2>
+        <p class="text-center text-muted mb-4">
+            The system implements role-based access control to ensure security and appropriate access levels
+        </p>
+
+        <div class="row g-4">
+            <!-- Admin Role -->
+            <div class="col-lg-4">
+                <div class="card border-primary h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-crown me-2"></i>Administrator
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text mb-3">
+                            <strong>Full system access</strong> with complete control over all features and data.
+                        </p>
+                        <h6 class="fw-bold mb-2">Permissions:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>View all user profiles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create, edit, and delete profiles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Manage all staff members</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Assign and modify user roles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Full access to bug tracking</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Manage all projects and tasks</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create and manage events</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Access all mail and messages</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Delete any records permanently</li>
+                            <li><i class="fas fa-check text-success me-2"></i>System-wide configuration</li>
+                        </ul>
+                        <div class="alert alert-info mt-3 mb-0">
+                            <small>
+                                <i class="fas fa-info-circle me-1"></i>
+                                <strong>Default Admin:</strong> admin@example.com
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Admin Role -->
+            <div class="col-lg-4">
+                <div class="card border-warning h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="fas fa-user-tie me-2"></i>Demo Administrator
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text mb-3">
+                            <strong>Full access with temporary data</strong> - Perfect for testing without affecting production data.
+                        </p>
+                        <h6 class="fw-bold mb-2">Permissions:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>View all user profiles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Edit all profiles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create temporary staff members</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create temporary user roles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create temporary bug tickets</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Manage own temporary data</li>
+                            <li><i class="fas fa-check text-success me-2"></i>View permanent system records</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Access mail and messaging</li>
+                            <li><i class="fas fa-times text-danger me-2"></i>Cannot delete permanent records</li>
+                        </ul>
+                        <div class="alert alert-warning mt-3 mb-0">
+                            <small>
+                                <i class="fas fa-exclamation-triangle me-1"></i>
+                                <strong>Note:</strong> All created data is temporary and will be removed upon logout.
+                            </small>
+                        </div>
+                        <div class="alert alert-info mt-2 mb-0">
+                            <small>
+                                <i class="fas fa-info-circle me-1"></i>
+                                <strong>Demo Login:</strong> demoAdmin@example.com
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular User Role -->
+            <div class="col-lg-4">
+                <div class="card border-success h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-user me-2"></i>Regular User
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text mb-3">
+                            <strong>Standard access</strong> focused on personal productivity and team collaboration.
+                        </p>
+                        <h6 class="fw-bold mb-2">Permissions:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>View and edit own profile only</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create personal profile</li>
+                            <li><i class="fas fa-check text-success me-2"></i>View staff directory (read-only)</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Send and receive internal mail</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Send messages to other users</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create bug tickets</li>
+                            <li><i class="fas fa-check text-success me-2"></i>View assigned tasks</li>
+                            <li><i class="fas fa-check text-success me-2"></i>View calendar events</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Create calendar events</li>
+                            <li><i class="fas fa-times text-danger me-2"></i>Cannot access other users' profiles</li>
+                            <li><i class="fas fa-times text-danger me-2"></i>Cannot manage staff or roles</li>
+                        </ul>
+                        <div class="alert alert-info mt-3 mb-0">
+                            <small>
+                                <i class="fas fa-info-circle me-1"></i>
+                                <strong>Demo Login:</strong> demoUser@example.com
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Features Section -->
+    <section class="mb-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="h3 fw-bold text-center mb-4">
+                    <i class="fas fa-magic text-primary me-2"></i>Special Features
+                </h2>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-clock text-warning me-2"></i>Temporary Data Management (Demo Admin)
+                        </h5>
+                        <p class="card-text">
+                            Demo Administrators can test the system freely without affecting production data. All entries created
+                            by a Demo Admin are marked as temporary and automatically removed upon logout, ensuring the database
+                            stays clean while allowing full exploration of features.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-shield-alt text-success me-2"></i>Soft Delete Protection
+                        </h5>
+                        <p class="card-text">
+                            The system implements soft deletes to prevent accidental data loss. Records are marked as deleted
+                            rather than permanently removed, allowing administrators to restore them if needed. This is especially
+                            useful for maintaining audit trails and recovering from mistakes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-filter text-info me-2"></i>Intelligent Spam Filtering
+                        </h5>
+                        <p class="card-text">
+                            The internal mail system includes spam detection to automatically identify and filter unwanted messages,
+                            keeping inboxes clean and ensuring important communications aren't missed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-lock text-danger me-2"></i>Role-Based Access Control (RBAC)
+                        </h5>
+                        <p class="card-text">
+                            Security is enforced at every level through ASP.NET Identity and custom authorization logic. Users
+                            can only access features and data appropriate for their role, ensuring data privacy and system integrity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="mb-5 bg-light py-5 px-4 rounded">
+        <h2 class="h3 fw-bold text-center mb-4">
+            <i class="fas fa-cogs text-primary me-2"></i>How It Works
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-3 text-center">
+                <div class="mb-3">
+                    <i class="fas fa-user-plus fa-3x text-primary"></i>
+                </div>
+                <h5>1. Register</h5>
+                <p class="text-muted">Create an account or use a demo account to explore the system</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="mb-3">
+                    <i class="fas fa-id-card fa-3x text-success"></i>
+                </div>
+                <h5>2. Create Profile</h5>
+                <p class="text-muted">Set up your professional profile with skills, experience, and education</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="mb-3">
+                    <i class="fas fa-project-diagram fa-3x text-info"></i>
+                </div>
+                <h5>3. Collaborate</h5>
+                <p class="text-muted">Work with your team using mail, messaging, and task management</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="mb-3">
+                    <i class="fas fa-chart-line fa-3x text-warning"></i>
+                </div>
+                <h5>4. Track Progress</h5>
+                <p class="text-muted">Monitor projects, bugs, and tasks through the dashboard</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Credentials Section -->
+    <section>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="h3 fw-bold text-center mb-4">
+                    <i class="fas fa-key text-warning me-2"></i>Demo Credentials
+                </h2>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card text-center border-primary">
+                            <div class="card-header bg-primary text-white">
+                                <strong>Administrator</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Email:</strong></p>
+                                <p class="text-muted">admin@example.com</p>
+                                <p class="mb-1"><strong>Password:</strong></p>
+                                <p class="text-muted">Password123!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center border-warning">
+                            <div class="card-header bg-warning text-dark">
+                                <strong>Demo Admin</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Email:</strong></p>
+                                <p class="text-muted">demoAdmin@example.com</p>
+                                <p class="mb-1"><strong>Password:</strong></p>
+                                <p class="text-muted">Password123!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center border-success">
+                            <div class="card-header bg-success text-white">
+                                <strong>Regular User</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1"><strong>Email:</strong></p>
+                                <p class="text-muted">demoUser@example.com</p>
+                                <p class="mb-1"><strong>Password:</strong></p>
+                                <p class="text-muted">Password123!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <script>
+        // smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+}

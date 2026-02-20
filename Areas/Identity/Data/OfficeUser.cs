@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace OfficeManagement.Areas.Identity.Data;
 
-// Add profile data for application users by adding properties to the OfficeUser class
 public class OfficeUser : IdentityUser
 {
     public string FirstName { get; set; }

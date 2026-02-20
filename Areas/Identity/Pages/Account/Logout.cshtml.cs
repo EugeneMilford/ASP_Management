@@ -1,8 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-#nullable disable
-
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +11,14 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<OfficeUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
-        private readonly UserManager<OfficeUser> _userManager; // Add UserManager to check user roles
-        private readonly OfficeContext _context; // Inject OfficeContext
+        private readonly UserManager<OfficeUser> _userManager; 
+        private readonly OfficeContext _context; 
 
         public LogoutModel(
             SignInManager<OfficeUser> signInManager,
             ILogger<LogoutModel> logger,
             UserManager<OfficeUser> userManager,
-            OfficeContext context) // Inject OfficeContext
+            OfficeContext context) 
         {
             _signInManager = signInManager;
             _logger = logger;
@@ -46,6 +42,11 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
             if (isDemoAdmin && user != null)
             {
                 // Remove temporary Staff Member entries
+                var tempActivities = await _context.Activities
+                    .Where(s => s.TempUserId == user.Id)
+                    .ToListAsync();
+
+                // Remove temporary Staff Member entries
                 var tempStaffEntries = await _context.Personnel
                     .Where(s => s.TempUserId == user.Id)
                     .ToListAsync();
@@ -60,8 +61,28 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
                     .Where(s => s.TempUserId == user.Id)
                     .ToListAsync();
 
+                // Remove temporary User Profiles entries
+                var tempUserProfiles = await _context.Summary
+                    .Where(s => s.TempUserId == user.Id)
+                    .ToListAsync();
+
+                // Remove temporary User Profiles entries
+                var tempAssignments = await _context.Assignments
+                    .Where(s => s.TempUserId == user.Id)
+                    .ToListAsync();
+
+                // Remove temporary Office Project entries
+                var tempProjects = await _context.Projects
+                    .Where(s => s.TempUserId == user.Id)
+                    .ToListAsync();
+
                 // Restore soft-deleted staff entries
                 var softStaffDeleted = await _context.Personnel
+                    .Where(s => s.TempUserId == user.Id && s.IsDeleted)
+                    .ToListAsync();
+
+                // Restore soft-deleted assignment entries
+                var softAssignmentDeleted = await _context.Assignments
                     .Where(s => s.TempUserId == user.Id && s.IsDeleted)
                     .ToListAsync();
 
@@ -72,6 +93,21 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
 
                 // Restore soft-deleted bug entries
                 var softBugsDeleted = await _context.Bugs
+                    .Where(s => s.TempUserId == user.Id && s.IsDeleted)
+                    .ToListAsync();
+
+                // Restore soft-deleted Profile entries
+                var softProfileDeleted = await _context.Summary
+                    .Where(s => s.TempUserId == user.Id && s.IsDeleted)
+                    .ToListAsync();
+
+                // Restore soft-deleted Project entries
+                var softProjectsDeleted = await _context.Projects
+                    .Where(s => s.TempUserId == user.Id && s.IsDeleted)
+                    .ToListAsync();
+
+                // Restore soft-deleted Project entries
+                var softActivitiesDeleted = await _context.Activities
                     .Where(s => s.TempUserId == user.Id && s.IsDeleted)
                     .ToListAsync();
 
@@ -97,6 +133,22 @@ namespace OfficeManagement.Areas.Identity.Pages.Account
 
                 // Remove temporary created entries
                 _context.Bugs.RemoveRange(tempBugEntries);
+                await _context.SaveChangesAsync();
+
+                // Remove temporary created Assignment entries
+                _context.Assignments.RemoveRange(tempAssignments);
+                await _context.SaveChangesAsync();
+
+                // Remove temporary created Activity entries
+                _context.Activities.RemoveRange(tempActivities);
+                await _context.SaveChangesAsync();
+
+                // Remove temporary created Profile entries
+                _context.Summary.RemoveRange(tempUserProfiles);
+                await _context.SaveChangesAsync();
+
+                // Remove temporary created Profile entries
+                _context.Projects.RemoveRange(tempProjects);
                 await _context.SaveChangesAsync();
             }
 

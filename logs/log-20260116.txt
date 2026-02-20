@@ -1,0 +1,115 @@
+2026-01-16 13:59:58.542 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 13:59:58.676 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 13:59:58.725 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 13:59:58.726 +02:00 [INF] Hosting environment: Development
+2026-01-16 13:59:58.728 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:07:49.162 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:07:49.218 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:07:49.265 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:07:49.266 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:07:49.268 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:08:01.643 +02:00 [INF] User logged out.
+2026-01-16 14:08:36.699 +02:00 [INF] User logged out.
+2026-01-16 14:15:10.638 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:15:10.696 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:15:10.749 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:15:10.750 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:15:10.751 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:15:21.905 +02:00 [INF] User logged out.
+2026-01-16 14:16:09.610 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:16:09.649 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:16:09.686 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:16:09.687 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:16:09.689 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:16:23.283 +02:00 [INF] User logged out.
+2026-01-16 14:16:57.565 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:16:57.605 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:16:57.650 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:16:57.651 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:16:57.653 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:17:22.664 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:17:22.702 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:17:22.761 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:17:22.763 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:17:22.764 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:17:42.738 +02:00 [INF] User logged out.
+2026-01-16 14:18:50.632 +02:00 [INF] User logged out.
+2026-01-16 14:20:30.731 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:20:30.770 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:20:30.806 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:20:30.808 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:20:30.809 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:20:46.032 +02:00 [INF] User logged out.
+2026-01-16 14:22:24.830 +02:00 [INF] User logged out.
+2026-01-16 14:24:11.208 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:24:11.249 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:24:11.287 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:24:11.289 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:24:11.290 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:24:41.791 +02:00 [INF] User logged out.
+2026-01-16 14:43:14.847 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:43:14.912 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:43:14.974 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:43:14.978 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:43:14.982 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:44:44.584 +02:00 [INF] User logged out.
+2026-01-16 14:47:50.178 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:47:50.228 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:47:50.279 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:47:50.281 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:47:50.282 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:48:21.654 +02:00 [INF] User logged out.
+2026-01-16 14:50:19.278 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:50:19.317 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:50:19.360 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:50:19.361 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:50:19.362 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:53:24.173 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:53:24.222 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:53:24.270 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:53:24.272 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:53:24.273 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:53:32.503 +02:00 [INF] User logged out.
+2026-01-16 14:55:40.828 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 14:55:40.907 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 14:55:41.142 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 14:55:41.150 +02:00 [INF] Hosting environment: Development
+2026-01-16 14:55:41.155 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 14:56:34.817 +02:00 [INF] User logged out.
+2026-01-16 20:13:19.813 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:13:19.862 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:13:19.920 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:13:19.921 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:13:19.922 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:16:04.319 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:16:04.359 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:16:04.421 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:16:04.422 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:16:04.424 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:16:15.840 +02:00 [INF] User logged out.
+2026-01-16 20:21:27.397 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:21:27.440 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:21:27.485 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:21:27.486 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:21:27.487 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:24:24.952 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:24:24.998 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:24:25.039 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:24:25.040 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:24:25.042 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:27:56.597 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:27:56.642 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:27:56.687 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:27:56.688 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:27:56.691 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:30:56.621 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:30:56.661 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:30:56.701 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:30:56.703 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:30:56.704 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:35:47.318 +02:00 [INF] Now listening on: https://localhost:7144
+2026-01-16 20:35:47.368 +02:00 [INF] Now listening on: http://localhost:5144
+2026-01-16 20:35:47.408 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-16 20:35:47.409 +02:00 [INF] Hosting environment: Development
+2026-01-16 20:35:47.410 +02:00 [INF] Content root path: D:\Projects\ASP NET Office Management\OfficeManagement\
+2026-01-16 20:40:11.250 +02:00 [INF] User logged out.

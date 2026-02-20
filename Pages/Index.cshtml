@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/Index">Home</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </div>
@@ -40,7 +40,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/StaffMembers/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
@@ -52,7 +52,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/OfficeProjects/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
@@ -64,7 +64,7 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="OfficeEvents/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
@@ -78,7 +78,7 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/Tasks/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -237,138 +237,792 @@
                     <h4 class="text-primary">Our Blog</h4>
                     <h1 class="display-5 mb-4">Latest Blog & Articles</h1>
                     <p class="mb-0">
-                        Stay updated with the latest insights, tips, and best practices for effective office management.
+                        Stay updated with the latest insights, tips, and best practices for effective office management and digital workplace solutions.
                     </p>
                 </div>
                 <div class="row g-4">
+                    <!-- Blog 1: Bug Tracking -->
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <a href="#">
-                                    <img src="~/img/office01.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal1">
+                                    <img src="~/img/office01.jpeg" class="img-fluid w-100 rounded-top" alt="Bug Tracking Best Practices">
                                 </a>
-                                <div class="blog-category py-2 px-4">Tips</div>
-                                <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
+                                <div class="blog-category py-2 px-4">Best Practices</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>February 19, 2026</div>
                             </div>
                             <div class="blog-content p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">How to Improve Office Productivity</a>
+                                <a href="#" class="h4 d-inline-block mb-4" data-bs-toggle="modal" data-bs-target="#modal1">
+                                    Effective Bug Tracking for Better Project Outcomes
+                                </a>
                                 <p class="mb-4">
-                                    Discover effective strategies to boost productivity in your office and enhance team collaboration...
+                                    Discover how implementing a robust bug tracking system can streamline your development process,
+                                    improve team communication, and deliver higher quality software products...
                                 </p>
-                                <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal1">Read More <i class="fas fa-arrow-right ms-2"></i></button>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal1">
+                                        Read More <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>1,245 views</small>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Blog 2: Team Collaboration -->
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <a href="#">
-                                    <img src="~/img/office02.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal2">
+                                    <img src="~/img/office02.jpeg" class="img-fluid w-100 rounded-top" alt="Team Collaboration">
                                 </a>
-                                <div class="blog-category py-2 px-4">Insight</div>
-                                <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
+                                <div class="blog-category py-2 px-4">Collaboration</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>February 15, 2026</div>
                             </div>
                             <div class="blog-content p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Effective Communication in the Workplace</a>
+                                <a href="#" class="h4 d-inline-block mb-4" data-bs-toggle="modal" data-bs-target="#modal2">
+                                    Mastering Internal Communication Systems
+                                </a>
                                 <p class="mb-4">
-                                    Learn how to foster effective communication among team members to ensure smooth office operations...
+                                    Learn how to leverage internal mail and messaging systems to create seamless communication
+                                    channels that enhance team collaboration and reduce email overload...
                                 </p>
-                                <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal2">Read More <i class="fas fa-arrow-right ms-2"></i></button>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal2">
+                                        Read More <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>987 views</small>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Blog 3: Project Management -->
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <a href="#">
-                                    <img src="~/img/office03.jpeg" class="img-fluid w-100 rounded-top" alt="Image">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal3">
+                                    <img src="~/img/office03.jpeg" class="img-fluid w-100 rounded-top" alt="Project Management">
                                 </a>
-                                <div class="blog-category py-2 px-4">Best Practices</div>
-                                <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
+                                <div class="blog-category py-2 px-4">Productivity</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>February 12, 2026</div>
                             </div>
                             <div class="blog-content p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Optimizing Office Layout for Efficiency</a>
+                                <a href="#" class="h4 d-inline-block mb-4" data-bs-toggle="modal" data-bs-target="#modal3">
+                                    Task Management Strategies That Actually Work
+                                </a>
                                 <p class="mb-4">
-                                    Explore the best office layout designs that promote efficiency and a positive working environment...
+                                    Explore proven task management strategies that help teams stay organized, meet deadlines,
+                                    and maintain high productivity levels without burnout...
                                 </p>
-                                <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal3">Read More <i class="fas fa-arrow-right ms-2"></i></button>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal3">
+                                        Read More <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>1,532 views</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog 4: User Profiles -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal4">
+                                    <img src="~/img/office01.jpeg" class="img-fluid w-100 rounded-top" alt="User Profile Management">
+                                </a>
+                                <div class="blog-category py-2 px-4">Tips</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>February 8, 2026</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4" data-bs-toggle="modal" data-bs-target="#modal4">
+                                    Building Strong User Profiles for Better Collaboration
+                                </a>
+                                <p class="mb-4">
+                                    Understand the importance of comprehensive user profiles and how they facilitate better
+                                    team connections, skill discovery, and project assignments...
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal4">
+                                        Read More <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>876 views</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog 5: Role-Based Access -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal5">
+                                    <img src="~/img/office02.jpeg" class="img-fluid w-100 rounded-top" alt="Security Best Practices">
+                                </a>
+                                <div class="blog-category py-2 px-4">Security</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>February 5, 2026</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4" data-bs-toggle="modal" data-bs-target="#modal5">
+                                    Understanding Role-Based Access Control (RBAC)
+                                </a>
+                                <p class="mb-4">
+                                    Learn how to implement effective role-based access control to protect sensitive data
+                                    while maintaining smooth workflow and collaboration...
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal5">
+                                        Read More <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>1,103 views</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog 6: Calendar & Events -->
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal6">
+                                    <img src="~/img/office03.jpeg" class="img-fluid w-100 rounded-top" alt="Event Management">
+                                </a>
+                                <div class="blog-category py-2 px-4">Planning</div>
+                                <div class="blog-date"><i class="fas fa-clock me-2"></i>February 1, 2026</div>
+                            </div>
+                            <div class="blog-content p-4">
+                                <a href="#" class="h4 d-inline-block mb-4" data-bs-toggle="modal" data-bs-target="#modal6">
+                                    Smart Calendar Management for Modern Teams
+                                </a>
+                                <p class="mb-4">
+                                    Master the art of calendar management to coordinate team schedules, plan events effectively,
+                                    and ensure everyone stays on the same page...
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4" data-bs-toggle="modal" data-bs-target="#modal6">
+                                        Read More <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>1,421 views</small>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Blog End -->
-        <!-- Modal 1 -->
+
+        <!-- Enhanced Modal 1: Bug Tracking -->
         <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modal1Label">How to Improve Office Productivity</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="modal1Label">
+                            <i class="fas fa-bug me-2"></i>Effective Bug Tracking for Better Project Outcomes
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <img src="~/img/office01.jpeg" class="img-fluid rounded mb-4" alt="Bug Tracking">
+
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">Best Practices</span>
+                            <span class="text-muted"><i class="fas fa-calendar me-1"></i>February 19, 2026</span>
+                            <span class="text-muted ms-3"><i class="fas fa-clock me-1"></i>5 min read</span>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Why Bug Tracking Matters</h6>
                         <p>
-                            Improving office productivity is crucial for achieving business goals and maintaining a competitive edge. One effective strategy is to implement
-                            time management techniques such as the Pomodoro Technique, which encourages employees to work in focused intervals with short breaks in between.
-                            This method helps to prevent burnout and keeps the team energized throughout the day.
-                            <br />
-                            Another key aspect of boosting productivity is organizing the workspace efficiently. A clutter-free environment can significantly reduce distractions
-                            and improve focus. Encourage employees to keep their desks tidy and invest in storage solutions to keep office supplies and documents in order.
-                            Additionally, consider creating designated quiet areas for tasks that require deep concentration.
+                            In today's fast-paced development environment, effective bug tracking is no longer optional—it's essential.
+                            A well-implemented bug tracking system serves as the central nervous system of your quality assurance process,
+                            ensuring that no issue falls through the cracks and that your team can prioritize work effectively.
                         </p>
+
+                        <h6 class="fw-bold mb-3">Key Components of Effective Bug Tracking</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Clear Ticket Descriptions:</strong> Include detailed steps to reproduce, expected vs. actual behavior, and environment details</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Priority Levels:</strong> Categorize bugs by urgency (Critical, High, Medium, Low) to guide team focus</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Assignment Tracking:</strong> Ensure every bug has an owner and clear accountability</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Status Updates:</strong> Keep stakeholders informed with regular progress updates</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i><strong>Resolution Documentation:</strong> Record how bugs were fixed for future reference</li>
+                        </ul>
+
+                        <h6 class="fw-bold mb-3">Best Practices for Your Team</h6>
+                        <p>
+                            Our Office Management System includes a comprehensive bug tracking module designed to streamline this process.
+                            Here are some best practices to maximize its effectiveness:
+                        </p>
+                        <ol>
+                            <li class="mb-2">Create tickets immediately when issues are discovered—don't rely on memory</li>
+                            <li class="mb-2">Use consistent naming conventions and tags for easy searching</li>
+                            <li class="mb-2">Attach screenshots or screen recordings whenever possible</li>
+                            <li class="mb-2">Review and triage bugs daily to prevent backlog buildup</li>
+                            <li class="mb-2">Hold weekly bug review meetings to discuss critical issues</li>
+                        </ol>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            <strong>Pro Tip:</strong> Use the bug tracking system to identify recurring issues and patterns,
+                            which can reveal deeper systemic problems that need architectural solutions.
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/OfficeBugTracking/Index" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt me-2"></i>Go to Bug Tracking
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal 2 -->
+        <!-- Enhanced Modal 2: Communication -->
         <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modal2Label">Effective Communication in the Workplace</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="modal2Label">
+                            <i class="fas fa-comments me-2"></i>Mastering Internal Communication Systems
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <img src="~/img/office02.jpeg" class="img-fluid rounded mb-4" alt="Team Communication">
+
+                        <div class="mb-3">
+                            <span class="badge bg-success me-2">Collaboration</span>
+                            <span class="text-muted"><i class="fas fa-calendar me-1"></i>February 15, 2026</span>
+                            <span class="text-muted ms-3"><i class="fas fa-clock me-1"></i>6 min read</span>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">The Communication Challenge</h6>
                         <p>
-                            Effective communication is the backbone of any successful office. Clear and open communication helps to prevent misunderstandings, reduces conflicts, and ensures that
-                            everyone is aligned with the company’s goals. Start by establishing regular channels of communication, such as weekly team meetings and daily stand-ups, to keep
-                            everyone informed and engaged.
-                            <br />
-                            Paragraph 2: It's also important to choose the right communication tools for your team. Email is great for formal communication, but instant messaging apps like
-                            Slack can facilitate quick, informal interactions. Video conferencing tools are essential for remote teams, allowing face-to-face communication even when
-                            employees are working from different locations. Ensure that all team members are comfortable using these tools and understand the best practices for each.
+                            In modern workplaces, communication fragmentation is a major productivity killer. When team members
+                            juggle multiple platforms—external email, instant messaging, phone calls, and more—important information
+                            gets lost, response times suffer, and collaboration breaks down.
                         </p>
+
+                        <h6 class="fw-bold mb-3">Why Internal Communication Tools Matter</h6>
+                        <p>
+                            Our Office Management System provides integrated mail and messaging features that keep all work-related
+                            communication in one secure, searchable location. Here's why this matters:
+                        </p>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="card border-success h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-envelope text-success me-2"></i>Internal Mail System</h6>
+                                        <p class="card-text small">
+                                            Perfect for formal communications, announcements, and documents that need to be
+                                            archived and easily retrievable.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-comment-dots text-info me-2"></i>Real-Time Messaging</h6>
+                                        <p class="card-text small">
+                                            Ideal for quick questions, informal collaboration, and maintaining team rapport
+                                            throughout the workday.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Communication Best Practices</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-arrow-right text-success me-2"></i>Use mail for formal requests, project updates, and documentation</li>
+                            <li class="mb-2"><i class="fas fa-arrow-right text-success me-2"></i>Use messaging for quick questions that need immediate responses</li>
+                            <li class="mb-2"><i class="fas fa-arrow-right text-success me-2"></i>Always use clear subject lines in emails for easy searching</li>
+                            <li class="mb-2"><i class="fas fa-arrow-right text-success me-2"></i>Respect response time expectations—not everything is urgent</li>
+                            <li class="mb-2"><i class="fas fa-arrow-right text-success me-2"></i>Keep messages professional and on-topic</li>
+                        </ul>
+
+                        <div class="alert alert-success">
+                            <i class="fas fa-star me-2"></i>
+                            <strong>Success Story:</strong> Teams using integrated communication systems report a 35% reduction
+                            in time spent searching for information and a 50% improvement in response times.
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Reducing Email Overload</h6>
+                        <p>
+                            The spam filtering feature automatically identifies and filters unwanted messages, ensuring your
+                            inbox stays focused on what matters. Combined with smart organization features like folders and
+                            search capabilities, you'll never lose track of important communications again.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/UserMail/Index" class="btn btn-success me-2">
+                            <i class="fas fa-envelope me-2"></i>Go to Mail
+                        </a>
+                        <a href="/UserMessages/Index" class="btn btn-info me-2">
+                            <i class="fas fa-comment me-2"></i>Go to Messages
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal 3 -->
+        <!-- Enhanced Modal 3: Task Management -->
         <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modal3Label">Optimizing Office Layout for Efficiency</h5>
+                    <div class="modal-header bg-warning text-dark">
+                        <h5 class="modal-title" id="modal3Label">
+                            <i class="fas fa-tasks me-2"></i>Task Management Strategies That Actually Work
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <img src="~/img/office03.jpeg" class="img-fluid rounded mb-4" alt="Task Management">
+
+                        <div class="mb-3">
+                            <span class="badge bg-warning text-dark me-2">Productivity</span>
+                            <span class="text-muted"><i class="fas fa-calendar me-1"></i>February 12, 2026</span>
+                            <span class="text-muted ms-3"><i class="fas fa-clock me-1"></i>7 min read</span>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">The Task Management Problem</h6>
                         <p>
-                            The layout of your office can have a significant impact on efficiency and productivity. An open office layout promotes collaboration and communication among team members,
-                            making it easier for employees to share ideas and work together on projects. However, it’s important to balance openness with quiet zones where employees can focus on
-                            individual tasks without distractions.
-                            <br />
-                            Ergonomics should also be a priority when designing your office layout. Invest in ergonomic furniture, such as adjustable chairs and standing desks, to ensure that
-                            employees are comfortable and can maintain good posture throughout the day. Proper lighting and ventilation are also crucial for creating a healthy work environment
-                            that minimizes fatigue and increases productivity.
+                            According to recent studies, the average professional manages 15-20 active tasks at any given time.
+                            Without a proper system, tasks slip through the cracks, deadlines are missed, and stress levels skyrocket.
+                            Effective task management isn't just about getting things done—it's about getting the right things done at the right time.
                         </p>
+
+                        <h6 class="fw-bold mb-3">Core Principles of Effective Task Management</h6>
+
+                        <div class="card border-primary mb-3">
+                            <div class="card-header bg-primary text-white">
+                                <strong>1. Capture Everything</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    Use our task assignment system to capture every task as soon as it comes up. Don't rely on
+                                    memory or scattered notes. Having a single source of truth for all tasks reduces cognitive load
+                                    and ensures nothing is forgotten.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card border-success mb-3">
+                            <div class="card-header bg-success text-white">
+                                <strong>2. Define Clear Start and End Dates</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    Every task in our system includes start and end dates. This creates accountability and helps
+                                    with workload planning. Use realistic timelines and build in buffer time for unexpected delays.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card border-info mb-3">
+                            <div class="card-header bg-info text-white">
+                                <strong>3. Assign Ownership</strong>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    Clear assignment prevents the "bystander effect" where everyone assumes someone else will handle it.
+                                    Each task should have one owner who is ultimately responsible for completion.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mb-3 mt-4">Advanced Task Management Techniques</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>Time Blocking:</strong> Dedicate specific time slots to specific tasks rather than trying
+                                to multitask throughout the day
+                            </li>
+                            <li class="list-group-item">
+                                <strong>The 2-Minute Rule:</strong> If a task takes less than 2 minutes, do it immediately rather
+                                than adding it to your list
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Regular Reviews:</strong> Hold weekly reviews to assess progress, reprioritize, and close
+                                completed tasks
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Break Down Large Tasks:</strong> Complex projects should be broken into smaller, actionable
+                                subtasks with their own deadlines
+                            </li>
+                        </ul>
+
+                        <div class="alert alert-warning mt-4">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Avoid These Common Mistakes:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Overcommitting—be realistic about what you can accomplish</li>
+                                <li>Ignoring dependencies—some tasks can't start until others finish</li>
+                                <li>Neglecting to update status—keep your team informed of progress</li>
+                            </ul>
+                        </div>
+
+                        <h6 class="fw-bold mb-3 mt-4">Integrating with Other System Features</h6>
+                        <p>
+                            Our task management system integrates seamlessly with other modules. Link tasks to specific projects
+                            in the project management section, coordinate deadlines with the calendar system, and communicate about
+                            tasks using internal mail or messaging.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/Tasks/Index" class="btn btn-warning text-dark me-2">
+                            <i class="fas fa-tasks me-2"></i>Go to Tasks
+                        </a>
+                        <a href="/OfficeProjects/Index" class="btn btn-info me-2">
+                            <i class="fas fa-project-diagram me-2"></i>View Projects
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Enhanced Modal 4: User Profiles -->
+        <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-info text-white">
+                        <h5 class="modal-title" id="modal4Label">
+                            <i class="fas fa-user-circle me-2"></i>Building Strong User Profiles for Better Collaboration
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="~/img/office01.jpeg" class="img-fluid rounded mb-4" alt="User Profiles">
 
+                        <div class="mb-3">
+                            <span class="badge bg-info me-2">Tips</span>
+                            <span class="text-muted"><i class="fas fa-calendar me-1"></i>February 8, 2026</span>
+                            <span class="text-muted ms-3"><i class="fas fa-clock me-1"></i>4 min read</span>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Why User Profiles Matter</h6>
+                        <p>
+                            In large organizations, it's easy to lose track of who has what skills, experience, and expertise.
+                            Comprehensive user profiles solve this problem by creating a searchable, centralized directory of
+                            your team's capabilities. This makes it easier to:
+                        </p>
+
+                        <ul>
+                            <li>Assign the right people to the right projects</li>
+                            <li>Identify subject matter experts when questions arise</li>
+                            <li>Facilitate cross-team collaboration and knowledge sharing</li>
+                            <li>Onboard new team members more effectively</li>
+                        </ul>
+
+                        <h6 class="fw-bold mb-3">Key Profile Components</h6>
+                        <p>Our system allows you to create rich, detailed profiles that include:</p>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-info">
+                                    <tr>
+                                        <th>Section</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Basic Information</strong></td>
+                                        <td>Name, title, contact details</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Professional Background</strong></td>
+                                        <td>Experience, education, certifications</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Skills & Expertise</strong></td>
+                                        <td>Technical and soft skills for project matching</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Current Projects</strong></td>
+                                        <td>Availability and workload visibility</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Personal Interests</strong></td>
+                                        <td>Hobbies and interests for team building</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-user-shield me-2"></i>
+                            <strong>Privacy Note:</strong> Regular users can only view and edit their own profiles. Administrators
+                            and Demo Administrators can view all profiles to facilitate team management and project assignments.
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Profile Best Practices</h6>
+                        <ol>
+                            <li class="mb-2"><strong>Keep it Current:</strong> Update your profile whenever you gain new skills or complete certifications</li>
+                            <li class="mb-2"><strong>Be Specific:</strong> "Experienced in Python" is better than "Good with programming"</li>
+                            <li class="mb-2"><strong>Showcase Accomplishments:</strong> Include notable projects and achievements</li>
+                            <li class="mb-2"><strong>Add Personal Touches:</strong> Hobbies and interests help build rapport with colleagues</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/UserProfiles/Index" class="btn btn-info">
+                            <i class="fas fa-user me-2"></i>Go to Profiles
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Modal 5: RBAC -->
+        <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modal5Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title" id="modal5Label">
+                            <i class="fas fa-shield-alt me-2"></i>Understanding Role-Based Access Control (RBAC)
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="~/img/office02.jpeg" class="img-fluid rounded mb-4" alt="Security">
+
+                        <div class="mb-3">
+                            <span class="badge bg-danger me-2">Security</span>
+                            <span class="text-muted"><i class="fas fa-calendar me-1"></i>February 5, 2026</span>
+                            <span class="text-muted ms-3"><i class="fas fa-clock me-1"></i>5 min read</span>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">What is RBAC?</h6>
+                        <p>
+                            Role-Based Access Control (RBAC) is a security model that restricts system access based on a user's role
+                            within an organization. Instead of assigning permissions to individual users, permissions are assigned to
+                            roles, and users are assigned to roles. This makes security management scalable and maintainable.
+                        </p>
+
+                        <h6 class="fw-bold mb-3">Our Three-Tier Role System</h6>
+
+                        <div class="accordion" id="rolesAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#role1">
+                                        <i class="fas fa-crown text-primary me-2"></i> Administrator Role
+                                    </button>
+                                </h2>
+                                <div id="role1" class="accordion-collapse collapse show" data-bs-parent="#rolesAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Full System Access</strong>
+                                        <ul class="mt-2">
+                                            <li>Manage all users and their roles</li>
+                                            <li>Access and modify all data across the system</li>
+                                            <li>Configure system-wide settings</li>
+                                            <li>Permanently delete records</li>
+                                            <li>View system analytics and reports</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#role2">
+                                        <i class="fas fa-user-tie text-warning me-2"></i> Demo Administrator Role
+                                    </button>
+                                </h2>
+                                <div id="role2" class="accordion-collapse collapse" data-bs-parent="#rolesAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Full Access with Temporary Data</strong>
+                                        <ul class="mt-2">
+                                            <li>Create temporary test data</li>
+                                            <li>View all permanent records (read-only)</li>
+                                            <li>Edit accessible records</li>
+                                            <li>Cannot permanently delete production data</li>
+                                            <li>All created data is removed on logout</li>
+                                        </ul>
+                                        <div class="alert alert-warning mt-2 mb-0">
+                                            <small><i class="fas fa-info-circle me-1"></i>Perfect for training, demos, and testing without affecting production</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#role3">
+                                        <i class="fas fa-user text-success me-2"></i> Regular User Role
+                                    </button>
+                                </h2>
+                                <div id="role3" class="accordion-collapse collapse" data-bs-parent="#rolesAccordion">
+                                    <div class="accordion-body">
+                                        <strong>Standard User Access</strong>
+                                        <ul class="mt-2">
+                                            <li>Manage own profile only</li>
+                                            <li>Send and receive mail/messages</li>
+                                            <li>Create bug tickets and tasks</li>
+                                            <li>View team calendar and events</li>
+                                            <li>Cannot access other users' private data</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mb-3 mt-4">Security Benefits of RBAC</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card border-success h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="fas fa-check-circle me-2"></i>Principle of Least Privilege
+                                        </h6>
+                                        <p class="card-text small">
+                                            Users only have access to what they need to perform their job, reducing the risk of
+                                            accidental or malicious data breaches.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="fas fa-history me-2"></i>Audit Trail
+                                        </h6>
+                                        <p class="card-text small">
+                                            All actions are logged with user roles, making it easy to track who did what and when
+                                            for compliance purposes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/UserRoles/Index" class="btn btn-danger">
+                            <i class="fas fa-user-shield me-2"></i>Manage Roles
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Modal 6: Calendar Management -->
+        <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="modal6Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <h5 class="modal-title" id="modal6Label">
+                            <i class="fas fa-calendar-alt me-2"></i>Smart Calendar Management for Modern Teams
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="~/img/office03.jpeg" class="img-fluid rounded mb-4" alt="Calendar">
+
+                        <div class="mb-3">
+                            <span class="badge" style="background-color: #667eea;">Planning</span>
+                            <span class="text-muted ms-2"><i class="fas fa-calendar me-1"></i>February 1, 2026</span>
+                            <span class="text-muted ms-3"><i class="fas fa-clock me-1"></i>6 min read</span>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">The Calendar Coordination Challenge</h6>
+                        <p>
+                            Scheduling meetings, coordinating events, and managing deadlines across multiple team members can be
+                            chaotic. Without a centralized calendar system, you end up with double-bookings, missed meetings, and
+                            constant back-and-forth emails trying to find suitable times.
+                        </p>
+
+                        <h6 class="fw-bold mb-3">Our Integrated Calendar Solution</h6>
+                        <p>
+                            Powered by FullCalendar, our system provides a visual, intuitive interface for managing all your team's
+                            scheduling needs. Here's what makes it powerful:
+                        </p>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="card h-100" style="border-left: 4px solid #667eea;">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-eye me-2" style="color: #667eea;"></i>Multiple Views</h6>
+                                        <p class="card-text small">Switch between month, week, and day views to get the perspective you need</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100" style="border-left: 4px solid #764ba2;">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-plus-circle me-2" style="color: #764ba2;"></i>Easy Event Creation</h6>
+                                        <p class="card-text small">Click any date or time slot to quickly create new events</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100" style="border-left: 4px solid #667eea;">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-users me-2" style="color: #667eea;"></i>Team Visibility</h6>
+                                        <p class="card-text small">See everyone's availability and scheduled events in one place</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100" style="border-left: 4px solid #764ba2;">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-bell me-2" style="color: #764ba2;"></i>Event Reminders</h6>
+                                        <p class="card-text small">Never miss an important meeting or deadline</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Calendar Best Practices</h6>
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <strong>1. Use Descriptive Event Titles</strong>
+                                <p class="mb-0 small text-muted">Instead of "Meeting", use "Q1 Planning Meeting - Marketing Team"</p>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>2. Add Event Details</strong>
+                                <p class="mb-0 small text-muted">Include location (physical or virtual), agenda, and any required preparation</p>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>3. Color-Code Event Types</strong>
+                                <p class="mb-0 small text-muted">Use different colors for meetings, deadlines, events, and personal time</p>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>4. Block Focus Time</strong>
+                                <p class="mb-0 small text-muted">Schedule blocks for deep work when you don't want to be interrupted</p>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>5. Review Weekly</strong>
+                                <p class="mb-0 small text-muted">Start each week by reviewing your calendar and adjusting as needed</p>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            <strong>Pro Tip:</strong> Integrate calendar reviews into your Monday morning routine. Spend 15 minutes
+                            reviewing the week ahead to identify potential conflicts and ensure you're prepared for all upcoming events.
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Integration with Other Features</h6>
+                        <p>
+                            Our calendar seamlessly integrates with other system features. Link calendar events to specific projects,
+                            send meeting invitations through the internal mail system, and coordinate task deadlines with your calendar
+                            view for comprehensive time management.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/Calendar" class="btn text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-calendar me-2"></i>Go to Calendar
+                        </a>
+                        <a href="/OfficeEvents/Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-list me-2"></i>View All Events
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

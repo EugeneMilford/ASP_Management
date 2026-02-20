@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2026-01-25T20:43:13.9305151Z"
+    },
+    "mssql3": {
+      "restored": true,
+      "restoreTime": "2026-02-20T08:44:28.9907074Z"
+    },
+    "mssql4": {
+      "restored": true,
+      "restoreTime": "2026-01-25T20:54:37.9263413Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2026-01-25T20:43:10.7699967Z"
+    }
+  },
+  "parameters": {
+    "mssql3.subscriptionId": {
+      "Name": "mssql3.subscriptionId",
+      "Type": "subscription",
+      "Value": "5a037e33-f9d3-480d-97c2-570e518e78e7"
+    },
+    "mssql3.resourceGroupName": {
+      "Name": "mssql3.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "rg-OfficeManagement"
+    }
+  }
+}

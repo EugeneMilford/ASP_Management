@@ -31,24 +31,19 @@
         </div>
     </section>
 
+    @if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
+    {
+        <a asp-page="./Create" class="btn btn-secondary">Add New Ticket</a>
+    }
+
+    <br />
+    <br />
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Open Projects</h3>
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-primary btn-default">
-                                            <i class="fas fa-search">Search</i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="card-body table-responsive p-0" style="height: 300px;">
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
@@ -114,12 +109,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            @if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
-            {
-                <a asp-page="./Create" class="btn btn-primary">Add New Ticket</a>
-            }
         </div>
     </section>
 </div>

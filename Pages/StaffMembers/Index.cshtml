@@ -8,15 +8,10 @@
 @{
     ViewData["Title"] = "Staff Members";
 
-    // Get the current user or simulate DemoAdmin if the user is null
+    // Current user or simulate DemoAdmin if the user is null
     var currentUser = await UserManager.GetUserAsync(User) ?? new OfficeUser { UserRole = "DemoAdmin" };
     var isAdmin = currentUser.UserRole == "Admin";
     var isDemoAdmin = currentUser != null && await UserManager.IsInRoleAsync(currentUser, "DemoAdmin");
-}
-
-@if (isAdmin || isDemoAdmin) // Show button for admins and demo admins
-{
-    <a asp-page="./Create" class="btn btn-primary">Add New Member</a>
 }
 
 <div class="container">
@@ -48,16 +43,6 @@
         <div class="card card-solid">
             <div class="card-header">
                 <h3 class="card-title">Staff Members</h3>
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-sm btn-secondary">
-                                <i class="fas fa-search"></i> Find
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="card-body pb-0">
@@ -82,9 +67,6 @@
                                             <p class="text-muted text-sm">
                                                 <b>Email:</b> @staffMember.EmailAddress
                                             </p>
-                                        </div>
-                                        <div class="col-5 text-center">
-                                            <img src="~/images/avatar.png" alt="User Avatar" class="img-circle img-fluid">
                                         </div>
                                     </div>
                                 </div>

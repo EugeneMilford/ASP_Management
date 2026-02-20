@@ -20,5 +20,8 @@ namespace OfficeManagement.Models
         public string ProjectUser { get; set; }
         public string UserId { get; set; }
         public OfficeUser User { get; set; }
+        public bool IsTemporary { get; set; }
+        public string? TempUserId { get; set; } // user reference
+        public bool IsDeleted { get; set; }
     }
 }

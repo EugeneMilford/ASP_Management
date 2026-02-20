@@ -4,10 +4,10 @@ using OfficeManagement.Data;
 using Microsoft.AspNetCore.Identity;
 using OfficeManagement.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add database context for Office management
 builder.Services.AddDbContext<OfficeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("OfficeContext")
         ?? throw new InvalidOperationException("Connection string 'OfficeContext' not found.")));
@@ -15,7 +15,6 @@ builder.Services.AddDbContext<OfficeContext>(options =>
 // Configure identity services using OfficeContext for authentication
 builder.Services.AddIdentity<OfficeUser, IdentityRole>(options =>
 {
-    // Configure identity options here as needed
     options.SignIn.RequireConfirmedAccount = true;
 })
 .AddRoles<IdentityRole>()
@@ -23,7 +22,7 @@ builder.Services.AddIdentity<OfficeUser, IdentityRole>(options =>
 .AddDefaultTokenProviders();
 
 // Enable session support
-builder.Services.AddDistributedMemoryCache(); // Required for session state
+builder.Services.AddDistributedMemoryCache(); 
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout duration
@@ -33,12 +32,15 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddTransient<IEmailSender, OfficeManagement.Services.EmailSender>();
 
-// Add Razor Pages
 builder.Services.AddRazorPages();
+
+builder.Host.UseSerilog((ctx, lc) =>
+    lc.WriteTo.Console().ReadFrom.Configuration(ctx.Configuration));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+
+// Configuring the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -54,7 +56,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-// Set the default page to welcome
 app.MapGet("/", () => Results.Redirect("/Welcome"));
 
 app.Run();

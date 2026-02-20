@@ -7,6 +7,14 @@
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:OfficeIdentityContextConnection"
+    },
+    "mssql4": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DatabaseConnection1"
+    },
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:DatabaseConnection"
     }
   }
 }
